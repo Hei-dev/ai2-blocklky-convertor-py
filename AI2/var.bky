@@ -1,0 +1,27 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="global_declaration" id="TKs@HUbQu7YVoRVu)KAP" x="39" y="-59">
+<field name="NAME">a</field>
+</block>
+<block type="lexical_variable_get" id="?p9;_@3,Acs=)|/rNm@b" x="80" y="19">
+<field name="VAR">global a</field>
+</block>
+<block type="lexical_variable_set" id=")fzj]%Th)/N%#R4#~sg2" x="58" y="68">
+<field name="VAR">global a</field>
+</block>
+<block type="local_declaration_expression" id="~FOAjGpTA29IGry|`9Be" x="44" y="141">
+<mutation>
+<localname name="b">
+</localname>
+</mutation>
+<field name="VAR0">b</field>
+</block>
+<block type="local_declaration_statement" id="*T6Xiz4Q.=V}Ns]$2?Ms" x="45" y="232">
+<mutation>
+<localname name="c">
+</localname>
+</mutation>
+<field name="VAR0">c</field>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

@@ -1,0 +1,82 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="controls_if" id="m+,Ma[4CKe57~MW~T|cA" x="77" y="-138">
+</block>
+<block type="controls_openAnotherScreen" id="5-?)4KzGfhY.|CYCjrSc" x="332" y="-140">
+<value name="SCREEN">
+<block type="helpers_screen_names" id="ei^6DGE:pt[Ppi0#Nhal">
+<field name="SCREEN">Screen1</field>
+</block>
+</value>
+</block>
+<block type="controls_openAnotherScreenWithStartValue" id="2xfTBgLE5|HHq_fMD{_|" x="336" y="-84">
+<value name="SCREENNAME">
+<block type="helpers_screen_names" id="jf,;m?W!Npk-wBw@pE.4">
+<field name="SCREEN">Screen1</field>
+</block>
+</value>
+</block>
+<block type="controls_if" id="H]7YM(o6+urR~$,,_l?1" x="78" y="-40">
+<mutation else="1">
+</mutation>
+</block>
+<block type="controls_getStartValue" id="`_=FN0_I$`RZ+{^q69ac" x="343" y="-10">
+</block>
+<block type="controls_if" id="N^adm](jLXrIG5gLEZ#;" x="79" y="85">
+<mutation elseif="1" else="1">
+</mutation>
+</block>
+<block type="controls_closeScreen" id="7-=xTn%Y*+krL+lY^4Lj" x="338" y="96">
+</block>
+<block type="controls_forRange" id="^`ki+@]L`06z5k]?Jt$:" x="76" y="257">
+<field name="VAR">number</field>
+<value name="START">
+<block type="math_number" id="BQ5#_0CB[}cPo7d}PzE)">
+<field name="NUM">1</field>
+</block>
+</value>
+<value name="END">
+<block type="math_number" id="#~}vPGK(Z3uixn$Q1X/B">
+<field name="NUM">5</field>
+</block>
+</value>
+<value name="STEP">
+<block type="math_number" id="1,0x#G(SQQIT.BM(]1Tk">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+<block type="controls_closeScreenWithValue" id="Fp;P7s*/I!K(;i#c+`t2" x="331" y="259">
+</block>
+<block type="controls_forEach" id="`)$Z2[,:n!m_JO6ds@.b" x="71" y="426">
+<field name="VAR">item</field>
+</block>
+<block type="controls_closeApplication" id="Ds}^5dLtN6%0rSr1svZP" x="338" y="424">
+</block>
+<block type="controls_for_each_dict" id="_g1^psIlOT2}d`yxOMmO" x="65" y="528">
+<field name="KEY">key</field>
+<field name="VALUE">value</field>
+</block>
+<block type="controls_getPlainStartText" id="9@_W(ahohB)=gGi)~=+;" x="455" y="534">
+</block>
+<block type="controls_while" id="M]n8JU]%iU;uDh7?Yp0n" x="143" y="619">
+</block>
+<block type="controls_closeScreenWithPlainText" id="flpY@ISkFS`_W8`x*]Xn" x="340" y="618">
+</block>
+<block type="controls_choose" id="L*8Mo:!~@8V^rs50t~o/" x="76" y="738">
+</block>
+<block type="controls_break" id="n5G7Ptw=s~f#4BU2@hSd" x="330" y="743">
+</block>
+<block type="controls_do_then_return" id="R$Ep{ri@|HF.Dk6:1fMI" x="76" y="859">
+</block>
+<block type="controls_eval_but_ignore" id="$_j@FU,|,EAehKKz`S]5" x="57" y="953">
+</block>
+<block type="controls_openAnotherScreen" id="O/Wf}^BaogoO5[YwM{;S" x="65" y="1003">
+<value name="SCREEN">
+<block type="helpers_screen_names" id="GdoHqKryCHCk(Ljh`E)^">
+<field name="SCREEN">Screen1</field>
+</block>
+</value>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

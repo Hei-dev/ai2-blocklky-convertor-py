@@ -1,0 +1,40 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="procedures_defnoreturn" id="Xq3%`BAw2l=Z$`pp6xvm" x="87" y="107">
+<field name="NAME">abc</field>
+</block>
+<block type="procedures_callnoreturn" id="%ES~,di=`y~Y%wHtBH+1" inline="false" x="362" y="131">
+<mutation name="abc">
+</mutation>
+<field name="PROCNAME">abc</field>
+</block>
+<block type="procedures_defnoreturn" id="l5:WM~4@ONzT%C}t(@8C" x="87" y="207">
+<mutation>
+<arg name="x">
+</arg>
+</mutation>
+<field name="NAME">abc2</field>
+<field name="VAR0">x</field>
+</block>
+<block type="procedures_callnoreturn" id="t.lGcbDsCj|oaSq0OaT{" inline="false" x="256" y="226">
+<mutation name="abc2">
+<arg name="x">
+</arg>
+</mutation>
+<field name="PROCNAME">abc2</field>
+<value name="ARG0">
+<block type="math_number" id="Iz@1)`/}X`Wy%l@?L+t;">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+<block type="procedures_defreturn" id="[4?fDSFQ@WT068UMmS{c" x="71" y="316">
+<field name="NAME">def</field>
+</block>
+<block type="procedures_callreturn" id="+66,7G34Gjum:-xohU(r" inline="false" x="328" y="328">
+<mutation name="def">
+</mutation>
+<field name="PROCNAME">def</field>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

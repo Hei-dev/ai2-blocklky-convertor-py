@@ -1,0 +1,28 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="text_split" id="0t(@Z/a@s/yP0YBt_J)4" x="128" y="93">
+<mutation mode="SPLIT">
+</mutation>
+<field name="OP">SPLIT</field>
+</block>
+<block type="text_split_at_spaces" id="7@S?;$)lud1FRU/hDI*~" x="126" y="153">
+</block>
+<block type="text_segment" id=";db|)@i{:0bilmI_DNNO" x="134" y="192">
+</block>
+<block type="text_replace_all" id="xxdyydc5C@`Sow!l!I]Y" x="131" y="267">
+</block>
+<block type="obfuscated_text" id="Np!u,$v%[vhtf@^6s!(b" x="114" y="354">
+<mutation confounder="hdsvjcpb">
+</mutation>
+<field name="TEXT">
+</field>
+</block>
+<block type="text_is_string" id="D(Eo%F%XsK-?xN|BMD^m" x="120" y="391">
+</block>
+<block type="text_reverse" id="?g=Ls(W[85%u]hB_[(S6" x="131" y="422">
+</block>
+<block type="text_replace_mappings" id="YTt#lz5r2NBBf8?7.Uq7" x="126" y="458">
+<field name="OP">LONGEST_STRING_FIRST</field>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

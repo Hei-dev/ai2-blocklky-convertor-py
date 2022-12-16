@@ -1,0 +1,66 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="dictionaries_create_with" id="pCFv:HrY_DFe5kP^sJh+" x="86" y="15">
+<mutation items="0">
+</mutation>
+</block>
+<block type="dictionaries_create_with" id="l3[fm-rc8c4c/rj:A?K)" x="84" y="59">
+<mutation items="2">
+</mutation>
+<value name="ADD0">
+<block type="pair" id="/D?Ygc9tmq_-q0KS3^?i">
+</block>
+</value>
+<value name="ADD1">
+<block type="pair" id="K:eF!vFiV0Ku:j4GQb]|">
+</block>
+</value>
+</block>
+<block type="pair" id="fC:7RBF}a:xk11KH=5M9" x="81" y="143">
+</block>
+<block type="dictionaries_lookup" id="Rw5?Q36zTa`NWQl-4-*i" x="79" y="193">
+<value name="NOTFOUND">
+<block type="text" id="VGSr/(YNK@sxEI~jn~](">
+<field name="TEXT">not found</field>
+</block>
+</value>
+</block>
+<block type="dictionaries_set_pair" id="1c:f42??xtU/6#ap5_{;" x="75" y="280">
+</block>
+<block type="dictionaries_delete_pair" id="^huG).-*Ecm}Ow;Stb}t" x="75" y="382">
+</block>
+<block type="dictionaries_recursive_lookup" id="H_wj[D,|;,uNgC!%Ohn(" x="83" y="464">
+<value name="NOTFOUND">
+<block type="text" id=")0T~540jp.Y|qG3U]yOp">
+<field name="TEXT">not found</field>
+</block>
+</value>
+</block>
+<block type="dictionaries_recursive_set" id="W_R`*-GW*4/bFWu$K`Ut" x="81" y="560">
+</block>
+<block type="dictionaries_getters" id="6+cm@*`Acr`VqE%]@MYd" x="90" y="658">
+<field name="OP">KEYS</field>
+</block>
+<block type="dictionaries_get_values" id="+njEUsDH8f.C|fa:JK]0" x="90" y="721">
+<field name="OP">VALUES</field>
+</block>
+<block type="dictionaries_is_key_in" id="xzJNZr-#zWZca}UDgI!O" x="81" y="771">
+</block>
+<block type="dictionaries_length" id="~oB,n$]$Z9oeWVTu#!D;" x="80" y="841">
+</block>
+<block type="dictionaries_alist_to_dict" id="es)EAX#)sRGU]t`hu~-O" x="78" y="884">
+</block>
+<block type="dictionaries_dict_to_alist" id="K|Yp.[7,tDJKPTnH;+Z/" x="75" y="929">
+</block>
+<block type="dictionaries_copy" id=".z]%mlyp8k+wzA4v/x0W" x="74" y="979">
+</block>
+<block type="dictionaries_combine_dicts" id=")Q;%hs]p@HD4TxLRxdgU" x="75" y="1033">
+</block>
+<block type="dictionaries_walk_tree" id="R]#^l%KUbI%bM)uNPl0h" x="74" y="1097">
+</block>
+<block type="dictionaries_walk_all" id=",.,nC}7i[8^@ll)Vk)Ry" x="76" y="1175">
+</block>
+<block type="dictionaries_is_dict" id="5gm*~;`$-t(4L_%X@o0c" x="77" y="1235">
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

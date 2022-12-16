@@ -1,0 +1,51 @@
+- Color Section (Might modify the block xml or rewrite the entire thing)
+- Control Section (All)
+- Dict Section (All)
+-  List Section (All, exclude lists_create_with)  **ADDED**
+    Special notes:
+    - lists_is_in (list contains item?)
+    - lists_position_in (Corresponding block: list_indexOf / get item's index in list / indexOf(item))
+    - lists_select_item (Corresonding block: list_getIndex / get index's item in list / list[index])
+    - lists_append_list (lis1.extend(lis2) in Python)
+    - lists_is_list (Check if var is a list (Boolean))
+    - lists_join_with_separator (Return the whole list as a String)
+    - lists_lookup_in_pairs (http://ai2.appinventor.mit.edu/reference/blocks/lists.html#lookupinpairs)
+    - lists_pick_random_item (Corresponding block: math_on_list with field OP = random item)
+
+
+- Maths Sections (Partial, refer to special notes)
+    Special notes:
+    - Blocks already exist:
+        math_number, math_random_int/float, math_on_list, math_single
+    - math_number_radix (Returns the DEC / HEX / BIN / OCT of the number)
+    - math_compare (Corresponding block: logic_compare)
+    - math_bitwise (uhhhh, I will just leave this: https://en.wikipedia.org/wiki/Bitwise_operation)
+    - math_random_set_seed (new algrithm)
+    - Merging into math_single:
+        math_abs, math_neg, math_round, math_ceiling, math_floor
+    - Merge into math_arthimetic:
+        math_add, math_subtract, math_multiply, math_division, math_power
+    - math_divide (Corresponding block: math_modulo)
+
+
+    
+- Texts Section (Partial) [INCOMPLETE]
+    Special Notes:
+    - text_compare (new algrithm)
+    - text_starts_at (Corresponding block: text_indexOf with field "END" = START (ironic lol), search for the first occurance of x in a string)
+    - text_contains (new algrithm, search if String contains x / string.contains(x) in Java)
+    - text_split (new algrithm)
+    - text_split_at_spaces (new algrithm)
+    - text_segment (Corresponding block: text_getSubstr)
+    - text_replace_all (new algrithm)
+    - obfuscated_text (new algrithm)
+    - text_is_string (new algrithm, check if var is string)
+    - text_reverse (new algrithm, reverse the texts)
+    - text_replace_mappings (http://ai2.appinventor.mit.edu/reference/blocks/text.html#replaceallmappingslongeststring
+-Variables (remap all the names)
+
+
+*** NOTES: Corresponding blocks with entirly differeent parameters should be rewritten ***
+***        as it is the safest and most conveninet way of converting                   ***
+
+*** YailTypeToBlocklyType: https://github.com/mit-cml/appinventor-sources/blob/f18f4508a341ac637e65c5ed96ab56372c88aebc/appinventor/blocklyeditor/src/blocks/utilities.js#L44

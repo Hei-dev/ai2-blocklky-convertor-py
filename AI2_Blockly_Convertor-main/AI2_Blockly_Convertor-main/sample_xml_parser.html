@@ -1,0 +1,28 @@
+<!--Code by W3Schools with slight modifications-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var parser, xmlDoc;
+var text = "<bookstore><book>" +
+"<title>Everyday Italian</title>" +
+"<author>Giada De Laurentiis</author>" +
+"<year>2005</year>" +
+"</book><book>" +
+"<title>Ever sdyday Itdw</title>" +
+"<year>2004</year>" +
+"</book></bookstore>";
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(text,"text/xml");
+
+document.getElementById("demo").innerHTML =
+xmlDoc.getElementsByTagName("book")[0].getElementsByTagName("title")[0].childNodes[0].nodeValue + 
+xmlDoc.getElementsByTagName("author")[0].childNodes[0].nodeValue;
+</script>
+
+</body>
+</html>

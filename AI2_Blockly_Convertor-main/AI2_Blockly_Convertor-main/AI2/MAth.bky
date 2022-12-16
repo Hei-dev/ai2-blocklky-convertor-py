@@ -1,0 +1,78 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="math_number" id="x6rALoNCev(80)]Lo^tZ" x="-649" y="-351">
+<field name="NUM">0</field>
+</block>
+<block type="math_number_radix" id="#FjeOe1Yg[4{?(PLIJi*" x="-650" y="-309">
+<field name="OP">DEC</field>
+<field name="NUM">0</field>
+</block>
+<block type="math_compare" id="6-{|QjI(Lu]8R%[t[q0." x="-656" y="-264">
+<field name="OP">EQ</field>
+</block>
+<block type="math_add" id="HnD7Xan|cc~kRNI4VZk$" x="-659" y="-222">
+<mutation items="2">
+</mutation>
+</block>
+<block type="math_subtract" id="VQR41Zc]htEa[t]_@E}:" x="-654" y="-181">
+</block>
+<block type="math_multiply" id="n-^CA$gR{Bqu9i0EJne%" x="-655" y="-127">
+<mutation items="2">
+</mutation>
+</block>
+<block type="math_division" id="0QnpFsiX|P:)Eg%K9MQ+" x="-651" y="-82">
+</block>
+<block type="math_power" id="H18yo5zm;ed0`{S_=IDe" x="-655" y="-40">
+</block>
+<block type="math_bitwise" id="bZgSX;@5ev,nB:vkb=2;" x="-654" y="10">
+<mutation items="2">
+</mutation>
+<field name="OP">BITAND</field>
+</block>
+<block type="math_random_int" id="tLcp?{.%]p`FA^ORMGMu" x="-656" y="66">
+<value name="FROM">
+<block type="math_number" id="uko~|A?H*K`YHHH-])nV">
+<field name="NUM">1</field>
+</block>
+</value>
+<value name="TO">
+<block type="math_number" id="Ow99d^+2pz~@izTRu.GZ">
+<field name="NUM">100</field>
+</block>
+</value>
+</block>
+<block type="math_random_float" id="Ls%fkhfhkiA)!(z5-!,$" x="-657" y="110">
+</block>
+<block type="math_random_set_seed" id=".:NK8hx-dXuF,7bPQ}1@" x="-666" y="155">
+</block>
+<block type="math_on_list" id="pMZ-YtgdljYG(lL;MF@7" x="-661" y="190">
+<mutation items="2">
+</mutation>
+<field name="OP">MIN</field>
+</block>
+<block type="math_single" id="3W91Ok$RtRD0+Mp~K2+G" x="-663" y="246">
+<field name="OP">ROOT</field>
+</block>
+<block type="math_abs" id=",jms.LE424Y^W:4+Aut!" x="-666" y="280">
+<field name="OP">ABS</field>
+</block>
+<block type="math_neg" id="sLU/ToN0aRmjK_$;^J]G" x="-669" y="308">
+<field name="OP">NEG</field>
+</block>
+<block type="math_round" id="!CFW3:sn9{`aRuS)y4%-" x="-671" y="338">
+<field name="OP">ROUND</field>
+</block>
+<block type="math_ceiling" id="|g+0dmlx_]qoeXum*Mu0" x="-664" y="373">
+<field name="OP">CEILING</field>
+</block>
+<block type="math_floor" id="3~Z4=mdZIBdcN2)Z-jDp" x="-665" y="407">
+<field name="OP">FLOOR</field>
+</block>
+<block type="math_divide" id=";mK0z+9ftP@Fs2:9e!18" x="-669" y="442">
+<field name="OP">MODULO</field>
+</block>
+<block type="math_trig" id="l3x%?+6.k!|5]LMH*t,i" x="-668" y="486">
+<field name="OP">SIN</field>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

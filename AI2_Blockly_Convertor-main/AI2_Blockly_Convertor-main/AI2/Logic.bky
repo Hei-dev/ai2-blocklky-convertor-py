@@ -1,0 +1,44 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="logic_boolean" id="3sKc_D2fEw0YpBbwkB-}" x="94" y="81">
+<field name="BOOL">TRUE</field>
+</block>
+
+<block type="logic_false" id="f#FNv.2J]t@_zv3N:J_~" x="96" y="126">
+<field name="BOOL">FALSE</field>
+</block>
+
+<block type="logic_negate" id="1U/JA,:GrN6=Mkpojb`9" x="100" y="189">
+</block>
+
+<block type="logic_compare" id="3jDaN{NbGrX_Yz*lD[!s" x="102" y="240">
+<field name="OP">EQ</field>
+</block>
+
+<block type="logic_operation" id="Yc^FMx[N{q`fh$6Xd]WB" x="97" y="326">
+<mutation items="2">
+</mutation>
+<field name="OP">AND</field>
+</block>
+
+<block type="logic_or" id="+H*:u8]QDIa+iO(Cd]Fb" x="102" y="380">
+<mutation items="2">
+</mutation>
+<field name="OP">OR</field>
+</block>
+
+<block type="logic_compare" id="+1H[L/Bt7(8KPL4j4A6I" x="110" y="425">
+    <field name="OP">EQ</field>
+    <value name="A">
+        <block type="math_number" id=":pdmVU@bO^lbn#{j.N02">
+            <field name="NUM">0</field>
+        </block>
+    </value>
+    <value name="B">
+        <block type="math_number" id="ZlyY?-N{HL$+98r[2mv`">
+            <field name="NUM">1</field>
+        </block>
+    </value>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

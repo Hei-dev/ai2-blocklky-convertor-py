@@ -1,0 +1,50 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="color_black" id="nE:hLm@xtle4ex*+U/Y5" x="73" y="-84">
+<field name="COLOR">#000000</field>
+</block>
+<block type="color_white" id="dw;kwTJGkolc!^8xQ(Oq" x="70" y="-47">
+<field name="COLOR">#ffffff</field>
+</block>
+<block type="color_red" id="cF-/c4ZSH~L#@G[^Jswr" x="71" y="-15">
+<field name="COLOR">#ff0000</field>
+</block>
+<block type="color_yellow" id="tHrbkuUgyKmUEy0;raRN" x="71" y="23">
+<field name="COLOR">#ffff00</field>
+</block>
+<block type="color_green" id="Hl!`TTzQc1abkKiUVcg2" x="72" y="60">
+<field name="COLOR">#00ff00</field>
+</block>
+<block type="color_blue" id="y}_.Q_z7#KqyMLg0r54N" x="70" y="102">
+<field name="COLOR">#0000ff</field>
+</block>
+<block type="color_magenta" id="-AQWC,~h`7q3T`^oUWkv" x="72" y="148">
+<field name="COLOR">#ff00ff</field>
+</block>
+<block type="color_make_color" id="!hu-,j1~p7BgVTsY%2|;" x="67" y="203">
+<value name="COLORLIST">
+<block type="lists_create_with" id="3H%rz(-Pt=y`|f*o4#!%" inline="false">
+<mutation items="3">
+</mutation>
+<value name="ADD0">
+<block type="math_number" id="!J?CP-o42z*MT:klN.-^">
+<field name="NUM">255</field>
+</block>
+</value>
+<value name="ADD1">
+<block type="math_number" id="dE),JJinazubLbaHoH,M">
+<field name="NUM">0</field>
+</block>
+</value>
+<value name="ADD2">
+<block type="math_number" id="6an~NjSe7yY=)kiX/`,]">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+<block type="color_split_color" id="-UwWRACZc;sn$;M=1Yy]" x="76" y="292">
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

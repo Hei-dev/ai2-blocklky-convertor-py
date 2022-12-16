@@ -1,0 +1,65 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="lists_create_with" id="a`4bKUkp7N`R$3~m?KwG" x="-630" y="59">
+<mutation items="0">
+</mutation>
+</block>
+<block type="lists_create_with" id="L=)/Ms*%c4xf9s{O+s0t" x="-629" y="112">
+<mutation items="2">
+</mutation>
+</block>
+<block type="lists_add_items" id="0|Zz2=z:PBJuS(#w%iZK" x="-632" y="211">
+<mutation items="1">
+</mutation>
+</block>
+<block type="lists_is_in" id="*5jZ.9JF%n1SGMTWLEou" x="-620" y="306">
+</block>
+<block type="lists_length" id="Mn?o^6[bL~sn{Sv2!fwr" x="-619" y="377">
+</block>
+<block type="lists_is_empty" id=";pA322!#.klvdi4$44C2" x="-631" y="427">
+</block>
+<block type="lists_pick_random_item" id="}7{Q6._[tG`IxayI=i.p" x="-629" y="481">
+</block>
+<block type="lists_position_in" id="n]^dnE/pV=J+WBUiv`4x" x="-633" y="553">
+</block>
+<block type="lists_select_item" id=",G6UV2cswVSHtBUhSW5I" x="-635" y="647">
+</block>
+<block type="lists_insert_item" id="CzLrMw|a*gEr@CDnd,8U" x="-640" y="727">
+</block>
+<block type="lists_replace_item" id="}z(7;5+IV~}=X37u~W+M" x="-639" y="856">
+    <next>
+        <block type="lists_remove_item" id="7hUnJ)/l7bxDW_Z(s`Ow">
+        </block>
+    </next>
+</block>
+<block type="lists_append_list" id="h;g_=yV|T:r$?gy]|3)I" x="-643" y="1025">
+</block>
+<block type="lists_copy" id="}(%wwRFacC_oKRQX:JQc" x="-635" y="1100">
+</block>
+<block type="lists_is_list" id="Gzu@RBq/D~nLZCnUiBj9" x="-633" y="1161">
+</block>
+<block type="lists_reverse" id="*A|6|8@H}x9^+Rr(M`s]" x="-637" y="1207">
+</block>
+<block type="lists_to_csv_row" id="DO=fdgG8Na]+i7ItjrxF" x="-637" y="1262">
+</block>
+<block type="lists_to_csv_table" id="hYN{8],^rXnFH?;]%oIc" x="-643" y="1310">
+</block>
+<block type="lists_from_csv_table" id="D^E$vSAK~}0gsOnGuMh8" x="-643" y="1364">
+</block>
+<block type="lists_lookup_in_pairs" id="n+^ynU7cSj@(]r{Z)9MJ" x="-639" y="1418">
+<value name="NOTFOUND">
+<block type="text" id="AAp`%-(cl8S;5pO5PIn.">
+<field name="TEXT">not found</field>
+</block>
+</value>
+</block>
+<block type="lists_join_with_separator" id="jaC8~;AaE_r#Fid+eOe." x="-642" y="1518">
+<value name="SEPARATOR">
+<block type="text" id="}v0bVDVbUI!rPu62G#C/">
+<field name="TEXT">
+</field>
+</block>
+</value>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>

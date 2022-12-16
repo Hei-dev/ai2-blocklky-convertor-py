@@ -1,0 +1,37 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block type="global_declaration" id="w-|^`^$E-hD+*]XaGikQ" x="28" y="72">
+<field name="NAME">a</field>
+<value name="VALUE">
+<block type="math_number" id="6kljmoHf@G7n[d)wD0O0">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+<block type="component_event" id="@0(W*x`TRq!e(T:F_*td" x="29" y="104">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="Initialize">
+    </mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+        <block type="lexical_variable_set" id="K@EHwiOv^Ll`@I?j@G$f">
+            <field name="VAR">global a</field>
+            <value name="VALUE">
+                <block type="math_number" id="^82|jl+N3c)SI?Yg)IEV">
+                    <field name="NUM">3</field>
+                </block>
+            </value>        
+            <next>
+                <block type="lexical_variable_set" id=",uD].+tXk]1!zJyXucF1">
+                    <field name="VAR">global a</field>
+                    <value name="VALUE">
+                        <block type="math_number" id="=#v!ri*[i7B0-192hw.*">
+                            <field name="NUM">6</field>
+                        </block>
+                    </value>
+                </block>
+            </next>
+        </block>
+    </statement>
+</block>
+<yacodeblocks ya-version="213" language-version="34">
+</yacodeblocks>
+</xml>
