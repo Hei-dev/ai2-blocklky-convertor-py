@@ -1,5 +1,6 @@
 from os import listdir
 import json
+import re
 
 # NOTES BEFORE RUNNING THE PROGRAM:
 # -Create a new folder called "new_folder" at the same directory as this program
@@ -55,6 +56,13 @@ YailTypeToBlocklyTypeMap = {
 
 YailTypeToBlocklyTypeStr = "Blockly.Blocks.Utilities.YailTypeToBlocklyType("
 
+replaceTextTable = {
+    "Blockly.FieldFlydown.DISPLAY_BELOW" : "BELOW",
+    "Blockly.FieldFlydown.DISPLAY_RIGHT" : "RIGHT",
+    "Blockly.FieldFlydown.DISPLAY_LOCATION" : "BELOW"
+}
+replaceTextTableKeys = replaceTextTable.keys()
+
 #Read file list
 orginalBlockFilesLis = listdir("blocks")
 
@@ -62,6 +70,32 @@ orginalBlockFilesLis = listdir("blocks")
 msgFile = open("messages.json","r")
 messages = json.loads(msgFile.read())
 #print(messages['Blockly.Msg.CONTROLS_IF_MSG_ELSE'])
+
+#Replace all blocks with localised string
+def replaceText(nline):
+    _nline = nline
+    if "Blockly.Msg" in nline and "goog." not in nline:
+        if "new Blockly.FieldDropdown(" in nline: #DEBUG
+            print(nline)
+
+        #Identify type
+        nline_split = nline.split(".")
+        msgType = "Blockly.Msg." + "".join(list(filter(
+            lambda x:x.isnumeric() or x.isalpha() or x=="_" or x=="-",
+            nline_split[nline_split.index("Msg")+1]
+        )))
+        #Replace with string
+        try:
+            _nline = nline.replace(msgType,"\"" + messages[msgType] + "\"")
+        except KeyError:
+            msgType = "Blockly.Msg." + "LANG_" + "".join(list(filter(
+                lambda x:x.isnumeric() or x.isalpha() or x=="_" or x=="-",
+                nline_split[nline_split.index("Msg")+1]
+            )))
+            _nline = nline.replace(msgType,"\"" + messages[msgType] + "\"")
+        #if "LANG_" in msgType:
+        #    print(msgType)
+    return _nline
 
 #Loop through files
 for fileName in orginalBlockFilesLis:
@@ -73,9 +107,22 @@ for fileName in orginalBlockFilesLis:
 
     nJsFile = ""
 
+    currentBlock = ""
+
     #Loop through lines in the file
     for line in defFileText.split("\n"):
         nline = line
+        #Check for block type
+        blockTypeList = re.findall("Blockly\.Blocks\['(?:[^\\']|\\\\|\\')*']",nline)
+        if len(blockTypeList)==1:
+            currentBlock = blockTypeList[0][blockTypeList[0].index("[")+2:blockTypeList[0].index("]")-1]
+            #print(currentBlock)
+
+        #Check for replaable string in the table
+        for rkeys in replaceTextTable.keys():
+            if rkeys in nline:
+                nline = nline.replace(rkeys,replaceTextTable[rkeys])
+
         #Check for YailTypeToBlockType, as it is not a built in functin in vanila Blockly
         if "Blockly.Blocks.Utilities.YailTypeToBlocklyType(" in nline:
             #Get type so that it can be correctly mapped in this program
@@ -90,24 +137,37 @@ for fileName in orginalBlockFilesLis:
             #Finally, replace the code
             endOfFun = nline.index("Blockly.Blocks.Utilities.INPUT" if IOtype=="input" else "Blockly.Blocks.Utilities.OUTPUT") + (31 if IOtype=="input" else 32)
             nline = nline.replace(nline[nline.index(YailTypeToBlocklyTypeStr):endOfFun],YailTypeToBlocklyTypeMap[varType][IOtype])
+        
+        #Check for Blockly.FieldDropdown
+        if "new Blockly.FieldDropdown(this.OPERATORS)" in nline:
+            operators = re.findall(".OPERATORS = function \(\) \{[^}]*\}",defFileText)[0]
+            nline = nline.replace("new Blockly.FieldDropdown(this.OPERATORS)","new Blockly.FieldDropdown(" + operators[operators.index("return [")+7:-2].replace(";","") + ")")
+
         #Replace all blocks with localised string
-        if "Blockly.Msg" in nline and "goog." not in nline:
-            #Identify type
-            nline_split = nline.split(".")
-            msgType = "Blockly.Msg." + "".join(list(filter(
-                lambda x:x.isnumeric() or x.isalpha() or x=="_" or x=="-",
-                nline_split[nline_split.index("Msg")+1]
-            )))
-            #Replace with string
-            try:
-                nline = nline.replace(msgType,"\"" + messages[msgType] + "\"")
-            except KeyError:
-                msgType = "Blockly.Msg." + "LANG_" + "".join(list(filter(
-                    lambda x:x.isnumeric() or x.isalpha() or x=="_" or x=="-",
-                    nline_split[nline_split.index("Msg")+1]
-                )))
-            #if "LANG_" in msgType:
-            #    print(msgType)
+        #NOTE No longer required. Create message.js and use Blockly's standard format instead.
+        #nline = replaceText(nline)
+        #if "Blockly.Msg" in nline and "goog." not in nline:
+        #    if "new Blockly.FieldDropdown(" in nline: #DEBUG
+        #        print(nline)
+#
+        #    #Identify type
+        #    nline_split = nline.split(".")
+        #    msgType = "Blockly.Msg." + "".join(list(filter(
+        #        lambda x:x.isnumeric() or x.isalpha() or x=="_" or x=="-",
+        #        nline_split[nline_split.index("Msg")+1]
+        #    )))
+        #    #Replace with string
+        #    try:
+        #        nline = nline.replace(msgType,"\"" + messages[msgType] + "\"")
+        #    except KeyError:
+        #        msgType = "Blockly.Msg." + "LANG_" + "".join(list(filter(
+        #            lambda x:x.isnumeric() or x.isalpha() or x=="_" or x=="-",
+        #            nline_split[nline_split.index("Msg")+1]
+        #        )))
+        #        nline = nline.replace(msgType,"\"" + messages[msgType] + "\"")
+        #    #if "LANG_" in msgType:
+        #    #    print(msgType)
+
         #Replace color pallet
         if "_CATEGORY_HUE" in nline:
             nline = nline.replace("Blockly.CONTROL_CATEGORY_HUE","'#B18E35'")
@@ -117,6 +177,7 @@ for fileName in orginalBlockFilesLis:
             nline = nline.replace("Blockly.LIST_CATEGORY_HUE","'#49A6D4'")
             nline = nline.replace("Blockly.COLOR_CATEGORY_HUE","'#7D7D7D'")
             nline = nline.replace("Blockly.DICTIONARY_CATEGORY_HUE","'#2D1799'")
+        
         
         nJsFile += nline + "\n"
     nFile = open("new_block/" + fileName,"w")

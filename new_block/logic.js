@@ -22,7 +22,10 @@ Blockly.Blocks['logic_boolean'] = {
     this.setColour('#77AB41');
     this.setOutput(true, ['Boolean', 'String']);
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'BOOL');
+        .appendField(new Blockly.FieldDropdown([
+    [Blockly.Msg.LANG_LOGIC_BOOLEAN_TRUE, 'TRUE'],
+    [Blockly.Msg.LANG_LOGIC_BOOLEAN_FALSE, 'FALSE']
+  ]), 'BOOL');
     var thisBlock = this;
     this.setTooltip(function () {
       var op = thisBlock.getFieldValue('BOOL');
@@ -34,13 +37,13 @@ Blockly.Blocks['logic_boolean'] = {
     return Blockly.Blocks.logic_boolean.HELPURLS()[op];
   },
   typeblock: [{
-    translatedName: "true",
+    translatedName: Blockly.Msg.LANG_LOGIC_BOOLEAN_TRUE,
     dropDown: {
       titleName: 'BOOL',
       value: 'TRUE'
     }
   }, {
-    translatedName: "false",
+    translatedName: Blockly.Msg.LANG_LOGIC_BOOLEAN_FALSE,
     dropDown: {
       titleName: 'BOOL',
       value: 'FALSE'
@@ -57,15 +60,15 @@ Blockly.Blocks.logic_boolean.OPERATORS = function () {
 
 Blockly.Blocks.logic_boolean.TOOLTIPS = function () {
   return {
-    TRUE: "Returns the boolean true.",
-    FALSE: "Returns the boolean false."
+    TRUE: Blockly.Msg.LANG_LOGIC_BOOLEAN_TOOLTIP_TRUE,
+    FALSE: Blockly.Msg.LANG_LOGIC_BOOLEAN_TOOLTIP_FALSE
   }
 };
 
 Blockly.Blocks.logic_boolean.HELPURLS = function () {
   return {
-    TRUE: "/reference/blocks/logic.html#true",
-    FALSE: "/reference/blocks/logic.html#false"
+    TRUE: Blockly.Msg.LANG_LOGIC_BOOLEAN_TRUE_HELPURL,
+    FALSE: Blockly.Msg.LANG_LOGIC_BOOLEAN_FALSE_HELPURL
   }
 };
 
@@ -93,16 +96,16 @@ Blockly.Blocks['logic_false'] = {
 Blockly.Blocks['logic_negate'] = {
   // Negation.
   category: 'Logic',
-  helpUrl: "/reference/blocks/logic.html#not",
+  helpUrl: Blockly.Msg.LANG_LOGIC_NEGATE_HELPURL,
   init: function () {
     this.setColour('#77AB41');
     this.setOutput(true, ['Boolean', 'String']);
     this.appendValueInput('BOOL')
         .setCheck(['Boolean'])
-        .appendField("not");
-    this.setTooltip("Returns true if the input is false.\nReturns false if the input is true.");
+        .appendField(Blockly.Msg.LANG_LOGIC_NEGATE_INPUT_NOT);
+    this.setTooltip(Blockly.Msg.LANG_LOGIC_NEGATE_TOOLTIP);
   },
-  typeblock: [{translatedName: "not"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_LOGIC_NEGATE_INPUT_NOT}]
 };
 
 Blockly.Blocks['logic_compare'] = {
@@ -117,7 +120,10 @@ Blockly.Blocks['logic_compare'] = {
     this.setOutput(true, ['Boolean', 'String']);
     this.appendValueInput('A');
     this.appendValueInput('B')
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([
+    [Blockly.Msg.LANG_LOGIC_BOOLEAN_TRUE, 'TRUE'],
+    [Blockly.Msg.LANG_LOGIC_BOOLEAN_FALSE, 'FALSE']
+  ]), 'OP');
     this.setInputsInline(true);
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
@@ -127,20 +133,20 @@ Blockly.Blocks['logic_compare'] = {
     });
   },
   // Potential clash with Math =, so using 'logic equal' for now
-  typeblock: [{translatedName: "logic equal"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_LOGIC_COMPARE_TRANSLATED_NAME}]
 };
 
 Blockly.Blocks.logic_compare.TOOLTIPS = function () {
   return {
-    EQ: "Tests whether two things are equal. \nThe things being compared can be any things, not only numbers. \nNumbers are considered to be equal to their printed form as strings, \nfor example, the number 0 is equal to the text '0'.  Also, two strings \nthat represent numbers are equal if the numbers are equal, for example \n'1' is equal to '01'.",
-    NEQ: "Return true if both inputs are not equal to each other."
+    EQ: Blockly.Msg.LANG_LOGIC_COMPARE_TOOLTIP_EQ,
+    NEQ: Blockly.Msg.LANG_LOGIC_COMPARE_TOOLTIP_NEQ
   }
 };
 
 Blockly.Blocks.logic_compare.HELPURLS = function () {
   return {
-    EQ: "/reference/blocks/logic.html#=",
-    NEQ: "/reference/blocks/logic.html#not="
+    EQ: Blockly.Msg.LANG_LOGIC_COMPARE_HELPURL_EQ,
+    NEQ: Blockly.Msg.LANG_LOGIC_COMPARE_HELPURL_NEQ
   }
 };
 
@@ -363,8 +369,8 @@ Blockly.Blocks['logic_operation'] = {
   },
   updateFields: function(op) {
     if (this.getInputsInline()) {
-      var text = op === 'AND' ? "and" :
-        "or";
+      var text = op === 'AND' ? Blockly.Msg.LANG_LOGIC_OPERATION_AND :
+        Blockly.Msg.LANG_LOGIC_OPERATION_OR;
       for (var input, i = 2; (input = this.inputList[i]); i++) {
         input.fieldRow[0].setText(text);
       }
@@ -379,21 +385,21 @@ Blockly.Blocks['logic_operation'] = {
     if (this.lastMutator) {
       var mutatorBlock = this.lastMutator.getTopBlocks(false)[0];
       if (mutatorBlock) {
-        var title = op === 'AND' ? "and" :
-          "or";
+        var title = op === 'AND' ? Blockly.Msg.LANG_LOGIC_OPERATION_AND :
+          Blockly.Msg.LANG_LOGIC_OPERATION_OR;
         mutatorBlock.setFieldValue(title, 'CONTAINER_TEXT');
       }
     }
     return op;
   },
   typeblock: [{
-    translatedName: "and",
+    translatedName: Blockly.Msg.LANG_LOGIC_OPERATION_AND,
     dropDown: {
       titleName: 'OP',
       value: 'AND'
     }
   }, {
-    translatedName: "or",
+    translatedName: Blockly.Msg.LANG_LOGIC_OPERATION_OR,
     dropDown: {
       titleName: 'OP',
       value: 'OR'
@@ -409,20 +415,20 @@ Blockly.Blocks.logic_operation.OPERATORS = function () {
 };
 
 Blockly.Blocks.logic_operation.IDENTITY = function(op) {
-  return {'AND': "true",
+  return {'AND': Blockly.Msg.LANG_LOGIC_BOOLEAN_TRUE,
     'OR': Blockly.Msg.LANG_LOGIC_BOOLEAN_FALSE}[op];
 }
 
 Blockly.Blocks.logic_operation.HELPURLS = function () {
   return {
-    AND: "/reference/blocks/logic.html#and",
-    OR: "/reference/blocks/logic.html#or"
+    AND: Blockly.Msg.LANG_LOGIC_OPERATION_HELPURL_AND,
+    OR: Blockly.Msg.LANG_LOGIC_OPERATION_HELPURL_OR
   }
 };
 Blockly.Blocks.logic_operation.TOOLTIPS = function () {
   return {
-    AND: "Return true if all inputs are true.",
-    OR: "Return true if any input is true."
+    AND: Blockly.Msg.LANG_LOGIC_OPERATION_TOOLTIP_AND,
+    OR: Blockly.Msg.LANG_LOGIC_OPERATION_TOOLTIP_OR
   }
 };
 

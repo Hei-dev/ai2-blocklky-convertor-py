@@ -253,7 +253,7 @@ Blockly.Blocks['helpers_assets'] = {
       }
     } else {
       if (!this.getField('TEXT')) {
-        var label = new Blockly.FieldLabel("No available assets");
+        var label = new Blockly.FieldLabel(Blockly.Msg.LANG_NO_ASSETS);
         input.appendField(label, 'TEXT');
       }
       if (this.getField('ASSET')) {

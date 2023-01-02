@@ -17,198 +17,198 @@
 Blockly.Blocks['color_black'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#000000'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Click the square to pick a color.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_PICKER_TOOLTIP);
   },
-  typeblock: [{ translatedName: "black" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_BLACK }]
 };
 
 Blockly.Blocks['color_white'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#ffffff'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "white" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_WHITE }]
 };
 
 Blockly.Blocks['color_red'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#ff0000'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "red" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_RED }]
 };
 
 Blockly.Blocks['color_pink'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#ffafaf'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "pink" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_PINK }]
 };
 
 Blockly.Blocks['color_orange'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#ffc800'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "orange" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_ORANGE }]
 };
 
 Blockly.Blocks['color_yellow'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#ffff00'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "yellow" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_YELLOW }]
 };
 
 Blockly.Blocks['color_green'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#00ff00'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "green" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_GREEN }]
 };
 
 Blockly.Blocks['color_cyan'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#00ffff'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "cyan" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_CYAN }]
 };
 
 Blockly.Blocks['color_blue'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#0000ff'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "blue" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_BLUE }]
 };
 
 Blockly.Blocks['color_magenta'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#ff00ff'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "magenta" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_MAGENTA }]
 };
 
 Blockly.Blocks['color_light_gray'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#cccccc'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "light gray" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_LIGHT_GRAY }]
 };
 
 Blockly.Blocks['color_gray'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#888888'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "gray" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_GRAY }]
 };
 
 
 Blockly.Blocks['color_dark_gray'] = {
   // Colour picker.
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#basic",
+  helpUrl: Blockly.Msg.LANG_COLOUR_PICKER_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendDummyInput().appendField(new Blockly.FieldColour('#444444'), 'COLOR');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "dark gray" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_DARK_GRAY }]
 };
 
 Blockly.Blocks['color_make_color'] = {
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#make",
+  helpUrl: Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendValueInput('COLORLIST')
-      .appendField("make color")
+      .appendField(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR)
       .setCheck(['Array']);
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Generate a color using the given red, green, blue, and optionally alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_MAKE_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "make color" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_MAKE_COLOUR }]
 };
 
 Blockly.Blocks['color_split_color'] = {
   category: "Colors",
-  helpUrl: "/reference/blocks/colors.html#split",
+  helpUrl: Blockly.Msg.LANG_COLOUR_SPLIT_COLOUR_HELPURL,
   init: function() {
     this.setColour('#7D7D7D');
     this.appendValueInput('COLOR')
-      .appendField("split color")
+      .appendField(Blockly.Msg.LANG_COLOUR_SPLIT_COLOUR)
       .setCheck(['Number']);
     this.setOutput(true, ['Array', 'String']);
-    this.setTooltip("A list of four elements, each in the range 0 to 255, representing the red, green, blue and alpha components.");
+    this.setTooltip(Blockly.Msg.LANG_COLOUR_SPLIT_COLOUR_TOOLTIP);
   },
-  typeblock: [{ translatedName: "split color" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_COLOUR_SPLIT_COLOUR }]
 };
 

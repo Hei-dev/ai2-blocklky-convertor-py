@@ -17,15 +17,15 @@
 Blockly.Blocks['math_number'] = {
   // Numeric value.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#number",
+  helpUrl: Blockly.Msg.LANG_MATH_NUMBER_HELPURL,
   init: function () {
     this.setColour('#3F71B5');
     this.appendDummyInput().appendField(
         new Blockly.FieldTextInput('0', Blockly.Blocks.math_number.validator), 'NUM');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Report the number shown.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_NUMBER_TOOLTIP);
   },
-  typeblock: [{translatedName: "number"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_MUTATOR_ITEM_INPUT_NUMBER}]
 };
 
 /**
@@ -50,7 +50,7 @@ Blockly.Blocks.math_number.validator = function (text) {
 Blockly.Blocks['math_number_radix'] = {
   category:'Math',
 
-  helpUrl: "/reference/blocks/math.html#number-radix",
+  helpUrl: Blockly.Msg.LANG_MATH_NUMBER_RADIX_HELPURL,
 
   init: function() {
     this.dropdown = new Blockly.FieldDropdown([
@@ -66,10 +66,10 @@ Blockly.Blocks['math_number_radix'] = {
         .appendField(this.dropdown, 'OP')
         .appendField(this.numberField, 'NUM');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.setTooltip("Report the number shown in decimal (base-10) format.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_NUMBER_RADIX_TOOLTIP);
   },
 
-  typeblock: [{translatedName: "number radix"}],
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_NUMBER_RADIX_TITLE}],
 
   dropdownListener: function(newValue) {
     var numberField = this.sourceBlock_.numberField;
@@ -133,37 +133,37 @@ Blockly.Blocks['math_compare'] = {
   },
   // Potential clash with logic equal, using '=' for now
   typeblock: [{
-    translatedName: "=",
+    translatedName: Blockly.Msg.LANG_MATH_COMPARE_EQ,
     dropDown: {
       titleName: 'OP',
       value: 'EQ'
     }
   }, {
-    translatedName: "≠",
+    translatedName: Blockly.Msg.LANG_MATH_COMPARE_NEQ,
     dropDown: {
       titleName: 'OP',
       value: 'NEQ'
     }
   }, {
-    translatedName: "<",
+    translatedName: Blockly.Msg.LANG_MATH_COMPARE_LT,
     dropDown: {
       titleName: 'OP',
       value: 'LT'
     }
   }, {
-    translatedName: "≤",
+    translatedName: Blockly.Msg.LANG_MATH_COMPARE_LTE,
     dropDown: {
       titleName: 'OP',
       value: 'LTE'
     }
   }, {
-    translatedName: ">",
+    translatedName: Blockly.Msg.LANG_MATH_COMPARE_GT,
     dropDown: {
       titleName: 'OP',
       value: 'GT'
     }
   }, {
-    translatedName: "≥",
+    translatedName: Blockly.Msg.LANG_MATH_COMPARE_GTE,
     dropDown: {
       titleName: 'OP',
       value: 'GTE'
@@ -197,30 +197,30 @@ Blockly.Blocks.math_compare.OPERATORS = function () {
 
 Blockly.Blocks.math_compare.TOOLTIPS = function () {
   return {
-    EQ: "Return true if both numbers are equal to each other.",
-    NEQ: "Return true if both numbers are not equal to each other.",
-    LT: "Return true if the first number is smaller\nthan the second number.",
-    LTE: "Return true if the first number is smaller\nthan or equal to the second number.",
-    GT: "Return true if the first number is greater\nthan the second number.",
-    GTE: "Return true if the first number is greater\nthan or equal to the second number."
+    EQ: Blockly.Msg.LANG_MATH_COMPARE_TOOLTIP_EQ,
+    NEQ: Blockly.Msg.LANG_MATH_COMPARE_TOOLTIP_NEQ,
+    LT: Blockly.Msg.LANG_MATH_COMPARE_TOOLTIP_LT,
+    LTE: Blockly.Msg.LANG_MATH_COMPARE_TOOLTIP_LTE,
+    GT: Blockly.Msg.LANG_MATH_COMPARE_TOOLTIP_GT,
+    GTE: Blockly.Msg.LANG_MATH_COMPARE_TOOLTIP_GTE
   }
 };
 
 Blockly.Blocks.math_compare.HELPURLS = function () {
   return {
-    EQ: "/reference/blocks/math.html#=",
-    NEQ: "/reference/blocks/math.html#not=",
-    LT: "/reference/blocks/math.html#lt",
-    LTE: "/reference/blocks/math.html#lte",
-    GT: "/reference/blocks/math.html#gt",
-    GTE: "/reference/blocks/math.html#gte"
+    EQ: Blockly.Msg.LANG_MATH_COMPARE_HELPURL_EQ,
+    NEQ: Blockly.Msg.LANG_MATH_COMPARE_HELPURL_NEQ,
+    LT: Blockly.Msg.LANG_MATH_COMPARE_HELPURL_LT,
+    LTE: Blockly.Msg.LANG_MATH_COMPARE_HELPURL_LTE,
+    GT: Blockly.Msg.LANG_MATH_COMPARE_HELPURL_GT,
+    GTE: Blockly.Msg.LANG_MATH_COMPARE_HELPURL_GTE
   }
 };
 
 Blockly.Blocks['math_add'] = {
   // Basic arithmetic operator.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#add",
+  helpUrl: Blockly.Msg.LANG_MATH_ARITHMETIC_HELPURL_ADD,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
@@ -229,12 +229,12 @@ Blockly.Blocks['math_add'] = {
     // append the title on a separate line to avoid overly long lines
     this.appendValueInput('NUM1')
         .setCheck(['Number'])
-        .appendField("+");
+        .appendField(Blockly.Msg.LANG_MATH_ARITHMETIC_ADD);
     this.setInputsInline(true);
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function () {
-      return "Return the sum of the two numbers.";
+      return Blockly.Msg.LANG_MATH_ARITHMETIC_TOOLTIP_ADD;
     });
     this.setMutator(new Blockly.Mutator(['math_mutator_item']));
     this.emptyInputName = 'EMPTY';
@@ -247,7 +247,7 @@ Blockly.Blocks['math_add'] = {
 
     // If we only have one input, put the + operator before it
     if (this.itemCount_ === 1) {
-      this.inputList[0].appendField('0 ' + "+");
+      this.inputList[0].appendField('0 ' + Blockly.Msg.LANG_MATH_ARITHMETIC_ADD);
     }
   },
   decompose: function (workspace) {
@@ -258,26 +258,26 @@ Blockly.Blocks['math_add'] = {
 
     // If we only have one input, put the + operator before it
     if (this.itemCount_ === 1) {
-      this.inputList[0].appendField('0 ' + "+");
+      this.inputList[0].appendField('0 ' + Blockly.Msg.LANG_MATH_ARITHMETIC_ADD);
     }
   },
   saveConnections: Blockly.saveConnections,
   addEmptyInput: function () {
     this.appendDummyInput(this.emptyInputName)
-      .appendField("+");
+      .appendField(Blockly.Msg.LANG_MATH_ARITHMETIC_ADD);
   },
   addInput: function (inputNum) {
     var input = this.appendValueInput(this.repeatingInputName + inputNum)
         .setCheck(['Number']);
     if (inputNum !== 0) {
-      input.appendField("+");
+      input.appendField(Blockly.Msg.LANG_MATH_ARITHMETIC_ADD);
     }
     return input;
   },
   updateContainerBlock: function (containerBlock) {
     containerBlock.setFieldValue("+", "CONTAINER_TEXT");
   },
-  typeblock: [{translatedName: "+"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_ARITHMETIC_ADD}]
 };
 
 Blockly.Blocks['math_mutator_item'] = {
@@ -285,7 +285,7 @@ Blockly.Blocks['math_mutator_item'] = {
   init: function () {
     this.setColour('#3F71B5');
     this.appendDummyInput()
-      //.appendField("item");
+      //.appendField(Blockly.Msg.LANG_LISTS_CREATE_WITH_ITEM_TITLE);
         .appendField("number");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -297,7 +297,7 @@ Blockly.Blocks['math_mutator_item'] = {
 Blockly.Blocks['math_subtract'] = {
   // Basic arithmetic operator.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#subtract",
+  helpUrl: Blockly.Msg.LANG_MATH_ARITHMETIC_HELPURL_MINUS,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
@@ -305,18 +305,18 @@ Blockly.Blocks['math_subtract'] = {
         .setCheck(['Number']);
     this.appendValueInput('B')
         .setCheck(['Number'])
-        .appendField("-");
+        .appendField(Blockly.Msg.LANG_MATH_ARITHMETIC_MINUS);
     this.setInputsInline(true);
     // Assign 'this' to a variable for use in the tooltip closure below.
-    this.setTooltip("Return the difference of the two numbers.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_ARITHMETIC_TOOLTIP_MINUS);
   },
-  typeblock: [{translatedName: "-"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_ARITHMETIC_MINUS}]
 };
 
 Blockly.Blocks['math_multiply'] = {
   // Basic arithmetic operator.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#multiply",
+  helpUrl: Blockly.Msg.LANG_MATH_ARITHMETIC_HELPURL_MULTIPLY,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
@@ -329,7 +329,7 @@ Blockly.Blocks['math_multiply'] = {
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function () {
-      return "Return the product of the two numbers.";
+      return Blockly.Msg.LANG_MATH_ARITHMETIC_TOOLTIP_MULTIPLY;
     });
     this.setMutator(new Blockly.Mutator(['math_mutator_item']));
     this.emptyInputName = 'EMPTY';
@@ -368,13 +368,13 @@ Blockly.Blocks['math_multiply'] = {
   updateContainerBlock: function (containerBlock) {
     containerBlock.setFieldValue(Blockly.Blocks.Utilities.times_symbol, "CONTAINER_TEXT");
   },
-  typeblock: [{translatedName: "*"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_ARITHMETIC_MULTIPLY}]
 };
 
 Blockly.Blocks['math_division'] = {
   // Basic arithmetic operator.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#divide",
+  helpUrl: Blockly.Msg.LANG_MATH_ARITHMETIC_HELPURL_DIVIDE,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
@@ -382,18 +382,18 @@ Blockly.Blocks['math_division'] = {
         .setCheck(['Number']);
     this.appendValueInput('B')
         .setCheck(['Number'])
-        .appendField("/");
+        .appendField(Blockly.Msg.LANG_MATH_ARITHMETIC_DIVIDE);
     this.setInputsInline(true);
     // Assign 'this' to a variable for use in the tooltip closure below.
-    this.setTooltip("Return the quotient of the two numbers.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_ARITHMETIC_TOOLTIP_DIVIDE);
   },
-  typeblock: [{translatedName: "/"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_ARITHMETIC_DIVIDE}]
 };
 
 Blockly.Blocks['math_power'] = {
   // Basic arithmetic operator.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#exponent",
+  helpUrl: Blockly.Msg.LANG_MATH_ARITHMETIC_HELPURL_POWER,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
@@ -401,13 +401,13 @@ Blockly.Blocks['math_power'] = {
         .setCheck(['Number']);
     this.appendValueInput('B')
         .setCheck(['Number'])
-        .appendField("^");
+        .appendField(Blockly.Msg.LANG_MATH_ARITHMETIC_POWER);
     this.setInputsInline(true);
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
-    this.setTooltip("Return the first number raised to\nthe power of the second number.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_ARITHMETIC_TOOLTIP_POWER);
   },
-  typeblock: [{translatedName: "^"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_ARITHMETIC_POWER}]
 };
 
 
@@ -424,7 +424,12 @@ Blockly.Blocks['math_bitwise'] = {
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('NUM0')
         .setCheck(['Number'])
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     this.appendValueInput('NUM1')
         .setCheck(['Number']);
     this.setInputsInline(false);
@@ -447,14 +452,24 @@ Blockly.Blocks['math_bitwise'] = {
   saveConnections: Blockly.saveConnections,
   addEmptyInput: function () {
     var input = this.appendDummyInput(this.emptyInputName);
-    input.appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+    input.appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     this.setFieldValue(this.valuesToSave['OP'], 'OP');
   },
   addInput: function (inputNum) {
     var input = this.appendValueInput(this.repeatingInputName + inputNum)
         .setCheck(['Number']);
     if (inputNum == 0) {
-      input.appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+      input.appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
       this.setFieldValue(this.valuesToSave['OP'], 'OP');
     }
     return input;
@@ -469,19 +484,19 @@ Blockly.Blocks['math_bitwise'] = {
 
   },
   typeblock: [{
-    translatedName: "bitwise and",
+    translatedName: Blockly.Msg.LANG_MATH_BITWISE_AND,
     dropDown: {
       titleName: 'OP',
       value: 'BITAND'
     }
   }, {
-    translatedName: "bitwise or",
+    translatedName: Blockly.Msg.LANG_MATH_BITWISE_IOR,
     dropDown: {
       titleName: 'OP',
       value: 'BITIOR'
     }
   }, {
-    translatedName: "bitwise xor",
+    translatedName: Blockly.Msg.LANG_MATH_BITWISE_XOR,
     dropDown: {
       titleName: 'OP',
       value: 'BITXOR'
@@ -497,76 +512,76 @@ Blockly.Blocks.math_bitwise.OPERATORS = function () {
 
 Blockly.Blocks.math_bitwise.TOOLTIPS = function () {
   return {
-    BITAND: "Return the bitwise AND of the two numbers.",
-    BITIOR: "Return the bitwise inclusive OR of the two numbers.",
-    BITXOR: "Return the bitwise exclusive OR of the two numbers."
+    BITAND: Blockly.Msg.LANG_MATH_BITWISE_TOOLTIP_AND,
+    BITIOR: Blockly.Msg.LANG_MATH_BITWISE_TOOLTIP_IOR,
+    BITXOR: Blockly.Msg.LANG_MATH_BITWISE_TOOLTIP_XOR
   }
 };
 
 Blockly.Blocks.math_bitwise.HELPURLS = function () {
   return {
-    BITAND: "/reference/blocks/math.html#bitwise_and",
-    BITIOR: "/reference/blocks/math.html#bitwise_ior",
-    BITXOR: "/reference/blocks/math.html#bitwise_xor"
+    BITAND: Blockly.Msg.LANG_MATH_BITWISE_HELPURL_AND,
+    BITIOR: Blockly.Msg.LANG_MATH_BITWISE_HELPURL_IOR,
+    BITXOR: Blockly.Msg.LANG_MATH_BITWISE_HELPURL_XOR
   }
 };
 
 Blockly.Blocks['math_random_int'] = {
   // Random integer between [X] and [Y].
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#randomint",
+  helpUrl: Blockly.Msg.LANG_MATH_RANDOM_INT_HELPURL,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
 
     var checkTypeNumber = ['Number'];
-    this.interpolateMsg("random integer from %1 to %2",
+    this.interpolateMsg(Blockly.Msg.LANG_MATH_RANDOM_INT_INPUT,
         ['FROM', checkTypeNumber, Blockly.ALIGN_RIGHT],
         ['TO', checkTypeNumber, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT)
     /*this.appendValueInput('FROM')
      .setCheck(['Number'])
-     .appendField("random integer")
-     .appendField("from");
+     .appendField(Blockly.Msg.LANG_MATH_RANDOM_INT_TITLE_RANDOM)
+     .appendField(Blockly.Msg.LANG_MATH_RANDOM_INT_INPUT_FROM);
      this.appendValueInput('TO')
      .setCheck(['Number'])
-     .appendField("to");*/
+     .appendField(Blockly.Msg.LANG_MATH_RANDOM_INT_INPUT_TO);*/
     this.setInputsInline(true);
-    this.setTooltip("Returns a random integer between the upper bound\nand the lower bound. The bounds will be clipped to be smaller\nthan 2**30.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_RANDOM_INT_TOOLTIP);
   },
-  typeblock: [{translatedName: "random integer"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_RANDOM_INT_TITLE_RANDOM}]
 };
 
 Blockly.Blocks['math_random_float'] = {
   // Random fraction between 0 and 1.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#randomfrac",
+  helpUrl: Blockly.Msg.LANG_MATH_RANDOM_FLOAT_HELPURL,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendDummyInput()
-        .appendField("random fraction");
-    this.setTooltip("Return a random number between 0 and 1.");
+        .appendField(Blockly.Msg.LANG_MATH_RANDOM_FLOAT_TITLE_RANDOM);
+    this.setTooltip(Blockly.Msg.LANG_MATH_RANDOM_FLOAT_TOOLTIP);
   },
-  typeblock: [{translatedName: "random fraction"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_RANDOM_FLOAT_TITLE_RANDOM}]
 };
 
 Blockly.Blocks['math_random_set_seed'] = {
   // Set the seed of the radom number generator
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#randomseed",
+  helpUrl: Blockly.Msg.LANG_MATH_RANDOM_SEED_HELPURL,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(false, ['Number', 'String', 'Key']);
     this.appendValueInput('NUM')
         .setCheck(['Number'])
-        .appendField("random set seed")
-        .appendField("to");
+        .appendField(Blockly.Msg.LANG_MATH_RANDOM_SEED_TITLE_RANDOM)
+        .appendField(Blockly.Msg.LANG_MATH_RANDOM_SEED_INPUT_TO);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("specifies a numeric seed\nfor the random number generator");
+    this.setTooltip(Blockly.Msg.LANG_MATH_RANDOM_SEED_TOOLTIP);
   },
-  typeblock: [{translatedName: "random set seed"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_RANDOM_SEED_TITLE_RANDOM}]
 };
 
 Blockly.Blocks['math_on_list'] = {
@@ -584,7 +599,12 @@ Blockly.Blocks['math_on_list'] = {
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('NUM0')
         .setCheck(['Number'])
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     this.appendValueInput('NUM1')
         .setCheck(['Number']);
     this.setInputsInline(false);
@@ -607,14 +627,24 @@ Blockly.Blocks['math_on_list'] = {
   saveConnections: Blockly.saveConnections,
   addEmptyInput: function () {
     var input = this.appendDummyInput(this.emptyInputName);
-    input.appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+    input.appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     this.setFieldValue(this.valuesToSave['OP'], 'OP');
   },
   addInput: function (inputNum) {
     var input = this.appendValueInput(this.repeatingInputName + inputNum)
         .setCheck(['Number']);
     if (inputNum == 0) {
-      input.appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+      input.appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
       this.setFieldValue(this.valuesToSave['OP'], 'OP');
     }
     return input;
@@ -629,13 +659,13 @@ Blockly.Blocks['math_on_list'] = {
 
   },
   typeblock: [{
-    translatedName: "min",
+    translatedName: Blockly.Msg.LANG_MATH_ONLIST_OPERATOR_MIN,
     dropDown: {
       titleName: 'OP',
       value: 'MIN'
     }
   }, {
-    translatedName: "max",
+    translatedName: Blockly.Msg.LANG_MATH_ONLIST_OPERATOR_MAX,
     dropDown: {
       titleName: 'OP',
       value: 'MAX'
@@ -650,15 +680,15 @@ Blockly.Blocks.math_on_list.OPERATORS = function () {
 
 Blockly.Blocks.math_on_list.TOOLTIPS = function () {
   return {
-    MIN: "Return the smallest of its arguments..",
-    MAX: "Return the largest of its arguments.."
+    MIN: Blockly.Msg.LANG_MATH_ONLIST_TOOLTIP_MIN,
+    MAX: Blockly.Msg.LANG_MATH_ONLIST_TOOLTIP_MAX
   }
 };
 
 Blockly.Blocks.math_on_list.HELPURLS = function () {
   return {
-    MIN: "http://appinventor.mit.edu/explore/ai2/support/blocks/math#min",
-    MAX: "http://appinventor.mit.edu/explore/ai2/support/blocks/math#max"
+    MIN: Blockly.Msg.LANG_MATH_ONLIST_HELPURL_MIN,
+    MAX: Blockly.Msg.LANG_MATH_ONLIST_HELPURL_MAX
   }
 };
 
@@ -674,7 +704,12 @@ Blockly.Blocks['math_single'] = {
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('NUM')
         .setCheck(['Number'])
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function () {
@@ -683,49 +718,49 @@ Blockly.Blocks['math_single'] = {
     });
   },
   typeblock: [{
-    translatedName: "square root",
+    translatedName: Blockly.Msg.LANG_MATH_SINGLE_OP_ROOT,
     dropDown: {
       titleName: 'OP',
       value: 'ROOT'
     }
   }, {
-    translatedName: "absolute",
+    translatedName: Blockly.Msg.LANG_MATH_SINGLE_OP_ABSOLUTE,
     dropDown: {
       titleName: 'OP',
       value: 'ABS'
     }
   }, {
-    translatedName: "neg",
+    translatedName: Blockly.Msg.LANG_MATH_SINGLE_OP_NEG,
     dropDown: {
       titleName: 'OP',
       value: 'NEG'
     }
   }, {
-    translatedName: "log",
+    translatedName: Blockly.Msg.LANG_MATH_SINGLE_OP_LN,
     dropDown: {
       titleName: 'OP',
       value: 'LN'
     }
   }, {
-    translatedName: "e^",
+    translatedName: Blockly.Msg.LANG_MATH_SINGLE_OP_EXP,
     dropDown: {
       titleName: 'OP',
       value: 'EXP'
     }
   }, {
-    translatedName: "round",
+    translatedName: Blockly.Msg.LANG_MATH_ROUND_OPERATOR_ROUND,
     dropDown: {
       titleName: 'OP',
       value: 'ROUND'
     }
   }, {
-    translatedName: "ceiling",
+    translatedName: Blockly.Msg.LANG_MATH_ROUND_OPERATOR_CEILING,
     dropDown: {
       titleName: 'OP',
       value: 'CEILING'
     }
   }, {
-    translatedName: "floor",
+    translatedName: Blockly.Msg.LANG_MATH_ROUND_OPERATOR_FLOOR,
     dropDown: {
       titleName: 'OP',
       value: 'FLOOR'
@@ -746,27 +781,27 @@ Blockly.Blocks.math_single.OPERATORS = function () {
 
 Blockly.Blocks.math_single.TOOLTIPS = function () {
   return {
-    ROOT: "Return the square root of a number.",
-    ABS: "Return the absolute value of a number.",
-    NEG: "Return the negation of a number.",
-    LN: "Return the natural logarithm of a number, i.e. the logarithm to the base e (2.71828...)",
-    EXP: "Return e (2.71828...) to the power of a number.",
-    ROUND: "Round a number up or down.",
-    CEILING: "Rounds the input to the smallest\nnumber not less then the input",
-    FLOOR: "Rounds the input to the largest\nnumber not greater then the input"
+    ROOT: Blockly.Msg.LANG_MATH_SINGLE_TOOLTIP_ROOT,
+    ABS: Blockly.Msg.LANG_MATH_SINGLE_TOOLTIP_ABS,
+    NEG: Blockly.Msg.LANG_MATH_SINGLE_TOOLTIP_NEG,
+    LN: Blockly.Msg.LANG_MATH_SINGLE_TOOLTIP_LN,
+    EXP: Blockly.Msg.LANG_MATH_SINGLE_TOOLTIP_EXP,
+    ROUND: Blockly.Msg.LANG_MATH_ROUND_TOOLTIP_ROUND,
+    CEILING: Blockly.Msg.LANG_MATH_ROUND_TOOLTIP_CEILING,
+    FLOOR: Blockly.Msg.LANG_MATH_ROUND_TOOLTIP_FLOOR
   }
 };
 
 Blockly.Blocks.math_single.HELPURLS = function () {
   return {
-    ROOT: "/reference/blocks/math.html#sqrt",
-    ABS: "/reference/blocks/math.html#abs",
-    NEG: "/reference/blocks/math.html#neg",
-    LN: "/reference/blocks/math.html#log",
-    EXP: "/reference/blocks/math.html#e",
-    ROUND: "/reference/blocks/math.html#round",
-    CEILING: "/reference/blocks/math.html#ceiling",
-    FLOOR: "/reference/blocks/math.html#floor"
+    ROOT: Blockly.Msg.LANG_MATH_SINGLE_HELPURL_ROOT,
+    ABS: Blockly.Msg.LANG_MATH_SINGLE_HELPURL_ABS,
+    NEG: Blockly.Msg.LANG_MATH_SINGLE_HELPURL_NEG,
+    LN: Blockly.Msg.LANG_MATH_SINGLE_HELPURL_LN,
+    EXP: Blockly.Msg.LANG_MATH_SINGLE_HELPURL_EXP,
+    ROUND: Blockly.Msg.LANG_MATH_ROUND_HELPURL_ROUND,
+    CEILING: Blockly.Msg.LANG_MATH_ROUND_HELPURL_CEILING,
+    FLOOR: Blockly.Msg.LANG_MATH_ROUND_HELPURL_FLOOR
   }
 };
 
@@ -897,10 +932,15 @@ Blockly.Blocks['math_divide'] = {
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('DIVIDEND')
         .setCheck(['Number'])
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     this.appendValueInput('DIVISOR')
         .setCheck(['Number'])
-        .appendField("÷");
+        .appendField(Blockly.Msg.LANG_MATH_DIVIDE);
     this.setInputsInline(true);
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
@@ -910,19 +950,19 @@ Blockly.Blocks['math_divide'] = {
     });
   },
   typeblock: [{
-    translatedName: "modulo of",
+    translatedName: Blockly.Msg.LANG_MATH_DIVIDE_OPERATOR_MODULO,
     dropDown: {
       titleName: 'OP',
       value: 'MODULO'
     }
   }, {
-    translatedName: "remainder of",
+    translatedName: Blockly.Msg.LANG_MATH_DIVIDE_OPERATOR_REMAINDER,
     dropDown: {
       titleName: 'OP',
       value: 'REMAINDER'
     }
   }, {
-    translatedName: "quotient of",
+    translatedName: Blockly.Msg.LANG_MATH_DIVIDE_OPERATOR_QUOTIENT,
     dropDown: {
       titleName: 'OP',
       value: 'QUOTIENT'
@@ -938,16 +978,16 @@ Blockly.Blocks.math_divide.OPERATORS = function () {
 
 Blockly.Blocks.math_divide.TOOLTIPS = function () {
   return {
-    MODULO: "Return the modulo.",
-    REMAINDER: "Return the remainder.",
-    QUOTIENT: "Return the quotient."
+    MODULO: Blockly.Msg.LANG_MATH_DIVIDE_TOOLTIP_MODULO,
+    REMAINDER: Blockly.Msg.LANG_MATH_DIVIDE_TOOLTIP_REMAINDER,
+    QUOTIENT: Blockly.Msg.LANG_MATH_DIVIDE_TOOLTIP_QUOTIENT
   }
 };
 
 Blockly.Blocks.math_divide.HELPURLS = function () {
   return {
-    MODULO: "/reference/blocks/math.html#modulo",
-    REMAINDER: "/reference/blocks/math.html#remainder",
+    MODULO: Blockly.Msg.LANG_MATH_DIVIDE_HELPURL_MODULO,
+    REMAINDER: Blockly.Msg.LANG_MATH_DIVIDE_HELPURL_REMAINDER,
     QUOTIENT: Blockly.Msg.LANG_MATH_DIVIDE_HELPURL_QUOTIENT
   }
 };
@@ -964,7 +1004,12 @@ Blockly.Blocks['math_trig'] = {
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('NUM')
         .setCheck(['Number'])
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     // Assign 'this' to a variable for use in the closures below.
     var thisBlock = this;
     this.setTooltip(function () {
@@ -973,37 +1018,37 @@ Blockly.Blocks['math_trig'] = {
     });
   },
   typeblock: [{
-    translatedName: "sin",
+    translatedName: Blockly.Msg.LANG_MATH_TRIG_SIN,
     dropDown: {
       titleName: 'OP',
       value: 'SIN'
     }
   }, {
-    translatedName: "cos",
+    translatedName: Blockly.Msg.LANG_MATH_TRIG_COS,
     dropDown: {
       titleName: 'OP',
       value: 'COS'
     }
   }, {
-    translatedName: "tan",
+    translatedName: Blockly.Msg.LANG_MATH_TRIG_TAN,
     dropDown: {
       titleName: 'OP',
       value: 'TAN'
     }
   }, {
-    translatedName: "asin",
+    translatedName: Blockly.Msg.LANG_MATH_TRIG_ASIN,
     dropDown: {
       titleName: 'OP',
       value: 'ASIN'
     }
   }, {
-    translatedName: "acos",
+    translatedName: Blockly.Msg.LANG_MATH_TRIG_ACOS,
     dropDown: {
       titleName: 'OP',
       value: 'ACOS'
     }
   }, {
-    translatedName: "atan",
+    translatedName: Blockly.Msg.LANG_MATH_TRIG_ATAN,
     dropDown: {
       titleName: 'OP',
       value: 'ATAN'
@@ -1022,23 +1067,23 @@ Blockly.Blocks.math_trig.OPERATORS = function () {
 
 Blockly.Blocks.math_trig.TOOLTIPS = function () {
   return {
-    SIN: "Provides the sine of the given angle in degrees.",
-    COS: "Provides the cosine of the given angle in degrees.",
-    TAN: "Provides the tangent of the given angle in degrees.",
-    ASIN: "Provides the angle in the range (-90,+90]\ndegrees with the given sine value.",
-    ACOS: "Provides the angle in the range [0, 180)\ndegrees with the given cosine value.",
-    ATAN: "Provides the angle in the range (-90, +90)\ndegrees with the given tangent value."
+    SIN: Blockly.Msg.LANG_MATH_TRIG_TOOLTIP_SIN,
+    COS: Blockly.Msg.LANG_MATH_TRIG_TOOLTIP_COS,
+    TAN: Blockly.Msg.LANG_MATH_TRIG_TOOLTIP_TAN,
+    ASIN: Blockly.Msg.LANG_MATH_TRIG_TOOLTIP_ASIN,
+    ACOS: Blockly.Msg.LANG_MATH_TRIG_TOOLTIP_ACOS,
+    ATAN: Blockly.Msg.LANG_MATH_TRIG_TOOLTIP_ATAN
   }
 };
 
 Blockly.Blocks.math_trig.HELPURLS = function () {
   return {
-    SIN: "/reference/blocks/math.html#sin",
-    COS: "/reference/blocks/math.html#cos",
-    TAN: "/reference/blocks/math.html#tan",
-    ASIN: "/reference/blocks/math.html#asin",
-    ACOS: "/reference/blocks/math.html#acos",
-    ATAN: "/reference/blocks/math.html#atan"
+    SIN: Blockly.Msg.LANG_MATH_TRIG_HELPURL_SIN,
+    COS: Blockly.Msg.LANG_MATH_TRIG_HELPURL_COS,
+    TAN: Blockly.Msg.LANG_MATH_TRIG_HELPURL_TAN,
+    ASIN: Blockly.Msg.LANG_MATH_TRIG_HELPURL_ASIN,
+    ACOS: Blockly.Msg.LANG_MATH_TRIG_HELPURL_ACOS,
+    ATAN: Blockly.Msg.LANG_MATH_TRIG_HELPURL_ATAN
   }
 };
 
@@ -1091,23 +1136,23 @@ Blockly.Blocks['math_tan'] = {
 Blockly.Blocks['math_atan2'] = {
   // Trigonometry operators.
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#atan2",
+  helpUrl: Blockly.Msg.LANG_MATH_TRIG_HELPURL_ATAN2,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
-    this.appendDummyInput().appendField("atan2");
+    this.appendDummyInput().appendField(Blockly.Msg.LANG_MATH_TRIG_ATAN2);
     this.appendValueInput('Y')
         .setCheck(['Number'])
-        .appendField("y")
+        .appendField(Blockly.Msg.LANG_MATH_TRIG_ATAN2_Y)
         .setAlign(Blockly.ALIGN_RIGHT);
     this.appendValueInput('X')
         .setCheck(['Number'])
-        .appendField("x")
+        .appendField(Blockly.Msg.LANG_MATH_TRIG_ATAN2_X)
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setInputsInline(false);
-    this.setTooltip("Provides the angle in the range (-180, +180]\ndegrees with the given rectangular coordinates.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_TRIG_TOOLTIP_ATAN2);
   },
-  typeblock: [{translatedName: "atan2"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_TRIG_ATAN2}]
 };
 
 Blockly.Blocks['math_convert_angles'] = {
@@ -1122,8 +1167,13 @@ Blockly.Blocks['math_convert_angles'] = {
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('NUM')
         .setCheck(['Number'])
-        .appendField("convert")
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(Blockly.Msg.LANG_MATH_CONVERT_ANGLES_TITLE_CONVERT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     // Assign 'this' to a variable for use in the closures below.
     var thisBlock = this;
     this.setTooltip(function () {
@@ -1132,15 +1182,15 @@ Blockly.Blocks['math_convert_angles'] = {
     });
   },
   typeblock: [{
-    translatedName: "convert" +
-    ' ' + "radians to degrees",
+    translatedName: Blockly.Msg.LANG_MATH_CONVERT_ANGLES_TITLE_CONVERT +
+    ' ' + Blockly.Msg.LANG_MATH_CONVERT_ANGLES_OP_RAD_TO_DEG,
     dropDown: {
       titleName: 'OP',
       value: 'RADIANS_TO_DEGREES'
     }
   }, {
-    translatedName: "convert" +
-    ' ' + "degrees to radians",
+    translatedName: Blockly.Msg.LANG_MATH_CONVERT_ANGLES_TITLE_CONVERT +
+    ' ' + Blockly.Msg.LANG_MATH_CONVERT_ANGLES_OP_DEG_TO_RAD,
     dropDown: {
       titleName: 'OP',
       value: 'DEGREES_TO_RADIANS'
@@ -1155,27 +1205,27 @@ Blockly.Blocks.math_convert_angles.OPERATORS = function () {
 
 Blockly.Blocks.math_convert_angles.TOOLTIPS = function () {
   return {
-    RADIANS_TO_DEGREES: "Returns the degree value in the range\n[0, 360) corresponding to its radians argument.",
-    DEGREES_TO_RADIANS: "Returns the radian value in the range\n[-π, +π) corresponding to its degrees argument."
+    RADIANS_TO_DEGREES: Blockly.Msg.LANG_MATH_CONVERT_ANGLES_TOOLTIP_RAD_TO_DEG,
+    DEGREES_TO_RADIANS: Blockly.Msg.LANG_MATH_CONVERT_ANGLES_TOOLTIP_DEG_TO_RAD
   }
 };
 
 Blockly.Blocks.math_convert_angles.HELPURLS = function () {
   return {
-    RADIANS_TO_DEGREES: "/reference/blocks/math.html#convertrad",
-    DEGREES_TO_RADIANS: "/reference/blocks/math.html#convertdeg"
+    RADIANS_TO_DEGREES: Blockly.Msg.LANG_MATH_CONVERT_ANGLES_HELPURL_RAD_TO_DEG,
+    DEGREES_TO_RADIANS: Blockly.Msg.LANG_MATH_CONVERT_ANGLES_HELPURL_DEG_TO_RAD
   }
 };
 
 Blockly.Blocks['math_format_as_decimal'] = {
   category: 'Math',
-  helpUrl: "/reference/blocks/math.html#format",
+  helpUrl: Blockly.Msg.LANG_MATH_FORMAT_AS_DECIMAL_HELPURL,
   init: function () {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
 
     var checkTypeNumber = ['Number'];
-    this.interpolateMsg("format as decimal number %1 places %2",
+    this.interpolateMsg(Blockly.Msg.LANG_MATH_FORMAT_AS_DECIMAL_INPUT,
         ['NUM', checkTypeNumber, Blockly.ALIGN_RIGHT],
         ['PLACES', checkTypeNumber, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
@@ -1190,9 +1240,9 @@ Blockly.Blocks['math_format_as_decimal'] = {
       .appendField('places')
       .setAlign(Blockly.ALIGN_RIGHT);*/
     this.setInputsInline(false);
-    this.setTooltip("Returns the number formatted as a decimal\nwith a specified number of places.");
+    this.setTooltip(Blockly.Msg.LANG_MATH_FORMAT_AS_DECIMAL_TOOLTIP);
   },
-  typeblock: [{translatedName: "format as decimal"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_MATH_FORMAT_AS_DECIMAL_TITLE}]
 };
 
 Blockly.Blocks['math_is_a_number'] = {
@@ -1205,7 +1255,12 @@ Blockly.Blocks['math_is_a_number'] = {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Boolean', 'String']);
     this.appendValueInput('NUM')
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     // Assign 'this' to a variable for use in the closures below.
     var thisBlock = this;
     this.setTooltip(function() {
@@ -1214,25 +1269,25 @@ Blockly.Blocks['math_is_a_number'] = {
     });
   },
   typeblock: [{
-    translatedName: "is number?",
+    translatedName: Blockly.Msg.LANG_MATH_IS_A_NUMBER_INPUT_NUM,
     dropDown: {
       titleName: 'OP',
       value: 'NUMBER'
     }
   },{
-    translatedName: "is Base 10?",
+    translatedName: Blockly.Msg.LANG_MATH_IS_A_DECIMAL_INPUT_NUM,
     dropDown: {
       titleName: 'OP',
       value: 'BASE10'
     }
   },{
-    translatedName: "is hexadecimal?",
+    translatedName: Blockly.Msg.LANG_MATH_IS_A_HEXADECIMAL_INPUT_NUM,
     dropDown: {
       titleName: 'OP',
       value: 'HEXADECIMAL'
     }
   },{
-    translatedName: "is binary?",
+    translatedName: Blockly.Msg.LANG_MATH_IS_A_BINARY_INPUT_NUM,
     dropDown: {
       titleName: 'OP',
       value: 'BINARY'
@@ -1247,17 +1302,17 @@ Blockly.Blocks.math_is_a_number.OPERATORS =
    [ Blockly.Msg.LANG_MATH_IS_A_BINARY_INPUT_NUM, 'BINARY' ]];
 
 Blockly.Blocks.math_is_a_number.TOOLTIPS = {
-  NUMBER : "Tests if something is a number.",
-  BASE10 : "Tests if something is a string that represents a positive base 10 integer.",
-  HEXADECIMAL : "Tests if something is a string that represents a hexadecimal number.",
-  BINARY : "Tests if something is a string that represents a binary number."
+  NUMBER : Blockly.Msg.LANG_MATH_IS_A_NUMBER_TOOLTIP,
+  BASE10 : Blockly.Msg.LANG_MATH_IS_A_DECIMAL_TOOLTIP,
+  HEXADECIMAL : Blockly.Msg.LANG_MATH_IS_A_HEXADECIMAL_TOOLTIP,
+  BINARY : Blockly.Msg.LANG_MATH_IS_A_BINARY_TOOLTIP
 };
 
 Blockly.Blocks.math_is_a_number.HELPURLS = {
-  NUMBER : "/reference/blocks/math.html#isnumber",
-  BASE10 : "/reference/blocks/math.html#isnumber",
-  HEXADECIMAL : "/reference/blocks/math.html#isnumber",
-  BINARY : "/reference/blocks/math.html#isnumber"
+  NUMBER : Blockly.Msg.LANG_MATH_IS_A_NUMBER_HELPURL,
+  BASE10 : Blockly.Msg.LANG_MATH_IS_A_DECIMAL_HELPURL,
+  HEXADECIMAL : Blockly.Msg.LANG_MATH_IS_A_HEXADECIMAL_HELPURL,
+  BINARY : Blockly.Msg.LANG_MATH_IS_A_BINARY_HELPURL
 };
 
 Blockly.Blocks['math_convert_number'] = {
@@ -1270,8 +1325,13 @@ Blockly.Blocks['math_convert_number'] = {
     this.setColour('#3F71B5');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('NUM')
-        .appendField("convert number")
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(Blockly.Msg.LANG_MATH_CONVERT_NUMBER_TITLE_CONVERT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_MATH_COMPARE_EQ, 'EQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_NEQ, 'NEQ'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LT, 'LT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_LTE, 'LTE'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GT, 'GT'],
+    [Blockly.Msg.LANG_MATH_COMPARE_GTE, 'GTE']]), 'OP');
     var thisBlock = this;
     this.setTooltip(function() {
       var mode = thisBlock.getFieldValue('OP');
@@ -1279,25 +1339,25 @@ Blockly.Blocks['math_convert_number'] = {
     });
   },
   typeblock: [{
-    translatedName: "base 10 to hex",
+    translatedName: Blockly.Msg.LANG_MATH_CONVERT_NUMBER_OP_DEC_TO_HEX,
     dropDown: {
       titleName: 'OP',
       value: 'DEC_TO_HEX'
     }
   },{
-    translatedName: "hex to base 10",
+    translatedName: Blockly.Msg.LANG_MATH_CONVERT_NUMBER_OP_HEX_TO_DEC,
     dropDown: {
       titleName: 'OP',
       value: 'HEX_TO_DEC'
     }
   },{
-    translatedName: "base 10 to binary",
+    translatedName: Blockly.Msg.LANG_MATH_CONVERT_NUMBER_OP_DEC_TO_BIN,
     dropDown: {
       titleName: 'OP',
       value: 'DEC_TO_BIN'
     }
   },{
-    translatedName: "binary to base 10",
+    translatedName: Blockly.Msg.LANG_MATH_CONVERT_NUMBER_OP_BIN_TO_DEC,
     dropDown: {
       titleName: 'OP',
       value: 'BIN_TO_DEC'
@@ -1312,16 +1372,16 @@ Blockly.Blocks.math_convert_number.OPERATORS =
    [ Blockly.Msg.LANG_MATH_CONVERT_NUMBER_OP_BIN_TO_DEC, 'BIN_TO_DEC' ]];
 
 Blockly.Blocks.math_convert_number.TOOLTIPS = {
-  DEC_TO_HEX : "Takes a positive integer in base 10 and returns the string that represents the number in hexadecimal",
-  HEX_TO_DEC : "Takes a string that represents a number in hexadecimal and returns the string that represents the number in base 10",
-  DEC_TO_BIN : "Takes a positive integer in base 10 and returns the string that represents the number in binary",
-  BIN_TO_DEC : "Takes a string that represents a number in binary and returns the string that represents the number in base 10"
+  DEC_TO_HEX : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_TOOLTIP_DEC_TO_HEX,
+  HEX_TO_DEC : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_TOOLTIP_HEX_TO_DEC,
+  DEC_TO_BIN : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_TOOLTIP_DEC_TO_BIN,
+  BIN_TO_DEC : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_TOOLTIP_BIN_TO_DEC
 };
 
 Blockly.Blocks.math_convert_number.HELPURLS = {
-  DEC_TO_HEX : "http://appinventor.mit.edu/explore/ai2/support/blocks/math#convertnumber",
-  HEX_TO_DEC : "http://appinventor.mit.edu/explore/ai2/support/blocks/math#convertnumber",
-  DEC_TO_BIN : "http://appinventor.mit.edu/explore/ai2/support/blocks/math#convertnumber",
-  BIN_TO_DEC : "http://appinventor.mit.edu/explore/ai2/support/blocks/math#convertnumber"
+  DEC_TO_HEX : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_HELPURL_DEC_TO_HEX,
+  HEX_TO_DEC : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_HELPURL_HEX_TO_DEC,
+  DEC_TO_BIN : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_HELPURL_DEC_TO_BIN,
+  BIN_TO_DEC : Blockly.Msg.LANG_MATH_CONVERT_NUMBER_HELPURL_BIN_TO_DEC
 };
 

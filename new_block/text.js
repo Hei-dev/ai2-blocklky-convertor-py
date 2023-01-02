@@ -17,7 +17,7 @@
 Blockly.Blocks['text'] = {
   // Text value.
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#string",
+  helpUrl: Blockly.Msg.LANG_TEXT_TEXT_HELPURL,
   init: function () {
     var textInput = new Blockly.FieldTextInput('');
     textInput.onFinishEditing_ = Blockly.Blocks.text
@@ -25,14 +25,14 @@ Blockly.Blocks['text'] = {
 
     this.setColour('#B32D5E');
     this.appendDummyInput()
-        .appendField("“")
+        .appendField(Blockly.Msg.LANG_TEXT_TEXT_LEFT_QUOTE)
         .appendField(textInput, 'TEXT')
-        .appendField("”");
+        .appendField(Blockly.Msg.LANG_TEXT_TEXT_RIGHT_QUOTE);
     this.setOutput(true, [Blockly.Blocks.text.connectionCheck]);
-    this.setTooltip("A text string.");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_TEXT_TOOLTIP);
   },
   errors: [{name:"checkInvalidNumber"}],
-  typeblock: [{translatedName: "Text"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_CATEGORY_TEXT}]
 };
 
 Blockly.Blocks.text.connectionCheck = function (myConnection, otherConnection, opt_value) {
@@ -88,14 +88,14 @@ Blockly.Blocks['text_join'] = {
   // Create a string made up of any number of elements of any type.
   // TODO: (Andrew) Make this handle multiple arguments.
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#join",
+  helpUrl: Blockly.Msg.LANG_TEXT_JOIN_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('ADD0')
-        .appendField("join");
+        .appendField(Blockly.Msg.LANG_TEXT_JOIN_TITLE_JOIN);
     this.appendValueInput('ADD1');
-    this.setTooltip("Appends all the inputs to form a single text string.\nIf there are no inputs, makes an empty text.");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_JOIN_TOOLTIP);
     this.setMutator(new Blockly.Mutator(['text_join_item']));
     this.emptyInputName = 'EMPTY';
     this.repeatingInputName = 'ADD';
@@ -110,19 +110,19 @@ Blockly.Blocks['text_join'] = {
   saveConnections: Blockly.saveConnections,
   addEmptyInput: function () {
     this.appendDummyInput(this.emptyInputName)
-        .appendField("join");
+        .appendField(Blockly.Msg.LANG_TEXT_JOIN_TITLE_JOIN);
   },
   addInput: function (inputNum) {
     var input = this.appendValueInput(this.repeatingInputName + inputNum).setCheck(['String']);
     if (inputNum === 0) {
-      input.appendField("join");
+      input.appendField(Blockly.Msg.LANG_TEXT_JOIN_TITLE_JOIN);
     }
     return input;
   },
   updateContainerBlock: function (containerBlock) {
-    containerBlock.inputList[0].fieldRow[0].setText("join");
+    containerBlock.inputList[0].fieldRow[0].setText(Blockly.Msg.LANG_TEXT_JOIN_TITLE_JOIN);
   },
-  typeblock: [{translatedName: "join"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_JOIN_TITLE_JOIN}]
 
 };
 
@@ -131,10 +131,10 @@ Blockly.Blocks['text_join_item'] = {
   init: function () {
     this.setColour('#B32D5E');
     this.appendDummyInput()
-        .appendField("string");
+        .appendField(Blockly.Msg.LANG_TEXT_JOIN_ITEM_TITLE_ITEM);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_JOIN_ITEM_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -142,46 +142,48 @@ Blockly.Blocks['text_join_item'] = {
 Blockly.Blocks['text_length'] = {
   // String length.
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#length",
+  helpUrl: Blockly.Msg.LANG_TEXT_LENGTH_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('VALUE')
         .setCheck(['String'])
-        .appendField("length");
-    this.setTooltip("Returns number of letters (including spaces)\nin the provided text.");
+        .appendField(Blockly.Msg.LANG_TEXT_LENGTH_INPUT_LENGTH);
+    this.setTooltip(Blockly.Msg.LANG_TEXT_LENGTH_TOOLTIP);
   },
-  typeblock: [{translatedName: "length"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_LENGTH_INPUT_LENGTH}]
 };
 
 Blockly.Blocks['text_isEmpty'] = {
   // Is the string null?
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#isempty",
+  helpUrl: Blockly.Msg.LANG_TEXT_ISEMPTY_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Boolean', 'String']);
     this.appendValueInput('VALUE')
         .setCheck(['String'])
-        .appendField("is empty");
-    this.setTooltip("Returns true if the length of the\n' + 'text is 0, false otherwise.");
+        .appendField(Blockly.Msg.LANG_TEXT_ISEMPTY_INPUT_ISEMPTY);
+    this.setTooltip(Blockly.Msg.LANG_TEXT_ISEMPTY_TOOLTIP);
   },
-  typeblock: [{translatedName: "is empty"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_ISEMPTY_INPUT_ISEMPTY}]
 };
 
 Blockly.Blocks['text_compare'] = {
   // Compare two texts
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#compare",
+  helpUrl: Blockly.Msg.LANG_TEXT_COMPARE_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Boolean', 'String']);
     this.appendValueInput('TEXT1')
         .setCheck(['String'])
-        .appendField("compare texts");
+        .appendField(Blockly.Msg.LANG_TEXT_COMPARE_INPUT_COMPARE);
     this.appendValueInput('TEXT2')
         .setCheck(['String'])
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([
+    [Blockly.Msg.LANG_TEXT_COMPARE_LT, 'LT'], [Blockly.Msg.LANG_TEXT_COMPARE_EQUAL, 'EQUAL'], [Blockly.Msg.LANG_TEXT_COMPARE_NEQ, 'NEQ'], [Blockly.Msg.LANG_TEXT_COMPARE_GT, 'GT']
+  ]), 'OP');
     this.setInputsInline(true);
     var thisBlock = this;
     this.setTooltip(function () {
@@ -224,26 +226,26 @@ Blockly.Blocks.text_compare.OPERATORS = function () {
 
 Blockly.Blocks.text_compare.TOOLTIPS = function () {
   return {
-    LT: "Tests whether text1 is lexicographically less than text2.\nif one text is the prefix of the other, the shorter text is\nconsidered smaller. Uppercase characters precede lowercase characters.",
-    EQUAL: "Tests whether text strings are identical, ie., have the same\ncharacters in the same order. This is different from ordinary:\nin the case where the text strings are numbers: 123 and 0123 are:\nbut not text:.",
-    NEQ: "Tests whether text strings are different, ie., don't have the same\ncharacters in the same order. This is different from ordinary ≠\nin the case where the text strings are numbers: 123 and 0123 are text ≠\nbut are mathematically:.",
-    GT: "Reports whether text1 is lexicographically greater than text2.\nif one text is the prefix of the other, the shorter text is considered smaller.\nUppercase characters precede lowercase characters."
+    LT: Blockly.Msg.LANG_TEXT_COMPARE_TOOLTIP_LT,
+    EQUAL: Blockly.Msg.LANG_TEXT_COMPARE_TOOLTIP_EQUAL,
+    NEQ: Blockly.Msg.LANG_TEXT_COMPARE_TOOLTIP_NEQ,
+    GT: Blockly.Msg.LANG_TEXT_COMPARE_TOOLTIP_GT
   }
 };
 
 Blockly.Blocks['text_trim'] = {
   // trim string
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#trim",
+  helpUrl: Blockly.Msg.LANG_TEXT_TRIM_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('TEXT')
         .setCheck(['String'])
-        .appendField("trim");
-    this.setTooltip("Returns a copy of its text string arguments with any\nleading or trailing spaces removed.");
+        .appendField(Blockly.Msg.LANG_TEXT_TRIM_TITLE_TRIM);
+    this.setTooltip(Blockly.Msg.LANG_TEXT_TRIM_TOOLTIP);
   },
-  typeblock: [{translatedName: "trim"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_TRIM_TITLE_TRIM}]
 };
 
 Blockly.Blocks['text_changeCase'] = {
@@ -258,7 +260,9 @@ Blockly.Blocks['text_changeCase'] = {
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('TEXT')
         .setCheck(['String'])
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(new Blockly.FieldDropdown([
+    [Blockly.Msg.LANG_TEXT_COMPARE_LT, 'LT'], [Blockly.Msg.LANG_TEXT_COMPARE_EQUAL, 'EQUAL'], [Blockly.Msg.LANG_TEXT_COMPARE_NEQ, 'NEQ'], [Blockly.Msg.LANG_TEXT_COMPARE_GT, 'GT']
+  ]), 'OP');
     var thisBlock = this;
     this.setTooltip(function () {
       var mode = thisBlock.getFieldValue('OP');
@@ -266,13 +270,13 @@ Blockly.Blocks['text_changeCase'] = {
     });
   },
   typeblock: [{
-    translatedName: "upcase",
+    translatedName: Blockly.Msg.LANG_TEXT_CHANGECASE_OPERATOR_UPPERCASE,
     dropDown: {
       titleName: 'OP',
       value: 'UPCASE'
     }
   }, {
-    translatedName: "downcase",
+    translatedName: Blockly.Msg.LANG_TEXT_CHANGECASE_OPERATOR_DOWNCASE,
     dropDown: {
       titleName: 'OP',
       value: 'DOWNCASE'
@@ -288,34 +292,34 @@ Blockly.Blocks.text_changeCase.OPERATORS = function () {
 
 Blockly.Blocks.text_changeCase.TOOLTIPS = function () {
   return {
-    UPCASE: "Returns a copy of its text string argument converted to uppercase.",
-    DOWNCASE: "Returns a copy of its text string argument converted to lowercase."
+    UPCASE: Blockly.Msg.LANG_TEXT_CHANGECASE_TOOLTIP_UPPERCASE,
+    DOWNCASE: Blockly.Msg.LANG_TEXT_CHANGECASE_TOOLTIP_DOWNCASE
   }
 };
 
 Blockly.Blocks.text_changeCase.HELPURLS = function () {
   return {
-    UPCASE: "/reference/blocks/text.html#upcase",
-    DOWNCASE: "/reference/blocks/text.html#downcase"
+    UPCASE: Blockly.Msg.LANG_TEXT_CHANGECASE_HELPURL_UPPERCASE,
+    DOWNCASE: Blockly.Msg.LANG_TEXT_CHANGECASE_HELPURL_DOWNCASE
   }
 };
 
 Blockly.Blocks['text_starts_at'] = {
   // return index of first occurrence.
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#startsat",
+  helpUrl: Blockly.Msg.LANG_TEXT_STARTS_AT_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Number', 'String', 'Key']);
     var checkTypeText = ['String'];
-    this.interpolateMsg("starts at  text %1 piece %2",
+    this.interpolateMsg(Blockly.Msg.LANG_TEXT_STARTS_AT_INPUT,
         ['TEXT', checkTypeText, Blockly.ALIGN_RIGHT],
         ['PIECE', checkTypeText, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
-    this.setTooltip("Returns the starting index of the piece in the text.\nwhere index 1 denotes the beginning of the text. Returns 0 if the\npiece is not in the text.");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_STARTS_AT_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{translatedName: "starts at"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_STARTS_AT_INPUT_STARTS_AT}]
 };
 
 Blockly.Blocks['text_contains'] = {
@@ -334,11 +338,11 @@ Blockly.Blocks['text_contains'] = {
         Blockly.Blocks.text_contains.OPERATORS(),
         Blockly.Blocks.text_contains.adjustToMode.bind(this));
     var text = new Blockly.FieldLabel(
-        "piece");
+        Blockly.Msg.LANG_TEXT_CONTAINS_INPUT_PIECE);
 
     this.setOutput(true, getType("boolean", utils.OUTPUT));
     this.interpolateMsg(
-        "%1 text %2 %3 %4",
+        Blockly.Msg.LANG_TEXT_CONTAINS_INPUT,
         ['OP', dropdown],
         ['TEXT', getType('text', utils.INPUT), Blockly.ALIGN_RIGHT],
         ['PIECE_TEXT', text],
@@ -370,21 +374,21 @@ Blockly.Blocks['text_contains'] = {
 
   typeblock: [
     {
-      translatedName: "contains",
+      translatedName: Blockly.Msg.LANG_TEXT_CONTAINS_OPERATOR_CONTAINS,
       dropDown: {
         titleName: 'OP',
         value: 'CONTAINS'
       }
     },
     {
-      translatedName: "contains any",
+      translatedName: Blockly.Msg.LANG_TEXT_CONTAINS_OPERATOR_CONTAINS_ANY,
       dropDown: {
         titleName: 'OP',
         value: 'CONTAINS_ANY'
       }
     },
     {
-      translatedName: "contains all",
+      translatedName: Blockly.Msg.LANG_TEXT_CONTAINS_OPERATOR_CONTAINS_ALL,
       dropDown: {
         titleName: 'OP',
         value: 'CONTAINS_ALL'
@@ -406,13 +410,13 @@ Blockly.Blocks.text_contains.adjustToMode = function (mode) {
     this.getInput('PIECE')
         .setCheck(getType('text', utils.INPUT));
     this.setFieldValue(
-        "piece",
+        Blockly.Msg.LANG_TEXT_CONTAINS_INPUT_PIECE,
         'PIECE_TEXT');
   } else {
     this.getInput('PIECE')
       .setCheck(getType('list', utils.INPUT));
     this.setFieldValue(
-        "piece list",
+        Blockly.Msg.LANG_TEXT_CONTAINS_INPUT_PIECE_LIST,
         'PIECE_TEXT');
   }
 };
@@ -428,17 +432,17 @@ Blockly.Blocks.text_contains.OPERATORS = function() {
 
 Blockly.Blocks.text_contains.TOOLTIPS = function() {
   return {
-    'CONTAINS': "Tests whether the piece is contained in the text.",
-    'CONTAINS_ANY': "Tests whether the any of the pieces are contained in the text.",
-    'CONTAINS_ALL': "Tests whether the all of the pieces are contained in the text.",
+    'CONTAINS': Blockly.Msg.LANG_TEXT_CONTAINS_TOOLTIP_CONTAINS,
+    'CONTAINS_ANY': Blockly.Msg.LANG_TEXT_CONTAINS_TOOLTIP_CONTAINS_ANY,
+    'CONTAINS_ALL': Blockly.Msg.LANG_TEXT_CONTAINS_TOOLTIP_CONTAINS_ALL,
   }
 };
 
 Blockly.Blocks.text_contains.HELPURLS = function() {
   return {
-    'CONTAINS': "/reference/blocks/text.html#contains",
-    'CONTAINS_ANY': "/reference/blocks/text.html#containsany",
-    'CONTAINS_ALL': "/reference/blocks/text.html#containsall",
+    'CONTAINS': Blockly.Msg.LANG_TEXT_CONTAINS_HELPURL_CONTAINS,
+    'CONTAINS_ANY': Blockly.Msg.LANG_TEXT_CONTAINS_HELPURL_CONTAINS_ANY,
+    'CONTAINS_ALL': Blockly.Msg.LANG_TEXT_CONTAINS_HELPURL_CONTAINS_ALL,
   }
 };
 
@@ -456,7 +460,7 @@ Blockly.Blocks['text_split'] = {
     this.appendValueInput('TEXT')
         .setCheck(['String'])
         .appendField(new Blockly.FieldDropdown(this.OPERATORS, Blockly.Blocks.text_split.dropdown_onchange), 'OP')
-        .appendField("text");
+        .appendField(Blockly.Msg.LANG_TEXT_SPLIT_INPUT_TEXT);
     this.appendValueInput('AT')
         .setCheck(['String'])
         .appendField(Blockly.Msg.LANG_TEXT_SPLIT_INPUT_AT, 'ARG2_NAME')
@@ -479,25 +483,25 @@ Blockly.Blocks['text_split'] = {
     return container;
   },
   typeblock: [{
-    translatedName: "split",
+    translatedName: Blockly.Msg.LANG_TEXT_SPLIT_OPERATOR_SPLIT,
     dropDown: {
       titleName: 'OP',
       value: 'SPLIT'
     }
   }, {
-    translatedName: "split at first",
+    translatedName: Blockly.Msg.LANG_TEXT_SPLIT_OPERATOR_SPLIT_AT_FIRST,
     dropDown: {
       titleName: 'OP',
       value: 'SPLITATFIRST'
     }
   }, {
-    translatedName: "split at any",
+    translatedName: Blockly.Msg.LANG_TEXT_SPLIT_OPERATOR_SPLIT_AT_ANY,
     dropDown: {
       titleName: 'OP',
       value: 'SPLITATANY'
     }
   }, {
-    translatedName: "split at first of any",
+    translatedName: Blockly.Msg.LANG_TEXT_SPLIT_OPERATOR_SPLIT_AT_FIRST_OF_ANY,
     dropDown: {
       titleName: 'OP',
       value: 'SPLITATFIRSTOFANY'
@@ -534,93 +538,93 @@ Blockly.Blocks.text_split.OPERATORS = function () {
 
 Blockly.Blocks.text_split.TOOLTIPS = function () {
   return {
-    SPLITATFIRST: "Divides the given text into two pieces using the location of the first occurrence of \nthe text 'at' as the dividing point, and returns a two-item list consisting of the piece \nbefore the dividing point and the piece after the dividing point. \nSplitting 'apple,banana,cherry,dogfood' with a comma as the splitting point \nreturns a list of two items: the first is the text 'apple' and the second is the text \n'banana,cherry,dogfood'. \nNotice that the comma after 'apple' does not appear in the result, \nbecause that is the dividing point.",
-    SPLITATFIRSTOFANY: "Divides the given text into a two-item list, using the first location of any item \nin the list 'at' as the dividing point. \n\nSplitting 'I love apples bananas apples grapes' by the list '(ba,ap)' returns \na list of two items, the first being 'I love' and the second being \n'ples bananas apples grapes.'",
-    SPLIT: "Divides text into pieces using the text 'at' as the dividing points and produces a list of the results.  \nSplitting 'one,two,three,four' at ',', (comma) returns the list '(one two three four)'. \nSplitting 'one-potato,two-potato,three-potato,four' at '-potato', returns the list '(one two three four)'.",
-    SPLITATANY: "Divides the given text into a list, using any of the items in the list 'at' as the \ndividing point, and returns a list of the results. \nSplitting 'appleberry,banana,cherry,dogfood' with 'at' as the two-element list whose \nfirst item is a comma and whose second item is 'rry' returns a list of four items: \n'(applebe banana che dogfood)'."
+    SPLITATFIRST: Blockly.Msg.LANG_TEXT_SPLIT_TOOLTIP_SPLIT_AT_FIRST,
+    SPLITATFIRSTOFANY: Blockly.Msg.LANG_TEXT_SPLIT_TOOLTIP_SPLIT_AT_FIRST_OF_ANY,
+    SPLIT: Blockly.Msg.LANG_TEXT_SPLIT_TOOLTIP_SPLIT,
+    SPLITATANY: Blockly.Msg.LANG_TEXT_SPLIT_TOOLTIP_SPLIT_AT_ANY
   }
 };
 
 Blockly.Blocks.text_split.HELPURLS = function () {
   return {
-    SPLITATFIRST: "/reference/blocks/text.html#splitat",
-    SPLITATFIRSTOFANY: "/reference/blocks/text.html#split",
-    SPLIT: "/reference/blocks/text.html#split",
-    SPLITATANY: "/reference/blocks/text.html#splitatany"
+    SPLITATFIRST: Blockly.Msg.LANG_TEXT_SPLIT_HELPURL_SPLIT_AT_FIRST,
+    SPLITATFIRSTOFANY: Blockly.Msg.LANG_TEXT_SPLIT_HELPURL_SPLIT_AT_FIRST_OF_ANY,
+    SPLIT: Blockly.Msg.LANG_TEXT_SPLIT_HELPURL_SPLIT,
+    SPLITATANY: Blockly.Msg.LANG_TEXT_SPLIT_HELPURL_SPLIT_AT_ANY
   }
 };
 
 Blockly.Blocks['text_split_at_spaces'] = {
   // Split at spaces
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#splitspaces",
+  helpUrl: Blockly.Msg.LANG_TEXT_SPLIT_AT_SPACES_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('TEXT')
         .setCheck(['String'])
-        .appendField("split at spaces");
-    this.setTooltip("Split the text into pieces separated by spaces.");
+        .appendField(Blockly.Msg.LANG_TEXT_SPLIT_AT_SPACES_TITLE);
+    this.setTooltip(Blockly.Msg.LANG_TEXT_SPLIT_AT_TOOLTIP);
   },
-  typeblock: [{translatedName: "split at spaces"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_SPLIT_AT_SPACES_TITLE}]
 };
 
 Blockly.Blocks['text_segment'] = {
   // Create text segment
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#segment",
+  helpUrl: Blockly.Msg.LANG_TEXT_SEGMENT_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Number', 'String', 'Key']);
     var checkTypeText = ['String'];
     var checkTypeNumber = ['Number'];
-    this.interpolateMsg("segment  text %1 start %2 length %3",
+    this.interpolateMsg(Blockly.Msg.LANG_TEXT_SEGMENT_INPUT,
         ['TEXT', checkTypeText, Blockly.ALIGN_RIGHT],
         ['START', checkTypeNumber, Blockly.ALIGN_RIGHT],
         ['LENGTH', checkTypeNumber, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
-    this.setTooltip("Extracts the segment of the given length from the given text\nstarting from the given text starting from the given position. Position\n1 denotes the beginning of the text.");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_SEGMENT_AT_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{translatedName: "segment"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_SEGMENT_TITLE_SEGMENT}]
 };
 
 Blockly.Blocks['text_replace_all'] = {
   // Replace all occurrences of text
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#replaceall",
+  helpUrl: Blockly.Msg.LANG_TEXT_REPLACE_ALL_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Number', 'String', 'Key']);
     var checkTypeText = ['String'];
-    this.interpolateMsg("replace all text %1 segment %2 replacement %3",
+    this.interpolateMsg(Blockly.Msg.LANG_TEXT_REPLACE_ALL_INPUT,
         ['TEXT', checkTypeText, Blockly.ALIGN_RIGHT],
         ['SEGMENT', checkTypeText, Blockly.ALIGN_RIGHT],
         ['REPLACEMENT', checkTypeText, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
-    this.setTooltip("Returns a new text obtained by replacing all occurrences\nof the segment with the replacement.");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_REPLACE_ALL_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{translatedName: "replace all"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_REPLACE_ALL_TITLE_REPLACE_ALL}]
 };
 
 Blockly.Blocks['obfuscated_text'] = {
   // Text value.
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#obfuscatetext",
+  helpUrl: Blockly.Msg.LANG_TEXT_TEXT_OBFUSCATE_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
-    var label = "Obfuscated Text" + " " +
-        "“"
+    var label = Blockly.Msg.LANG_TEXT_TEXT_OBFUSCATE + " " +
+        Blockly.Msg.LANG_TEXT_TEXT_LEFT_QUOTE
     var textInput = new Blockly.FieldTextBlockInput('');
     textInput.onFinishEditing_ = Blockly.Blocks.text
         .bumpBlockOnFinishEdit.bind(this);
     this.appendDummyInput()
         .appendField(label)
         .appendField(textInput,'TEXT')
-        .appendField("”");
+        .appendField(Blockly.Msg.LANG_TEXT_TEXT_RIGHT_QUOTE);
     this.setOutput(true, [Blockly.Blocks.text.connectionCheck]);
-    this.setTooltip("Produces text, like a text block.  The difference is that the \ntext is not easily discoverable by examining the app's APK.  Use this when creating apps \nto distribute that include confidential information, for example, API keys.  \nWarning: This provides only very low security against expert adversaries.");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_TEXT_OBFUSCATE_TOOLTIP);
     this.confounder = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 8);
   },
   domToMutation: function(xmlElement) {
@@ -632,36 +636,36 @@ Blockly.Blocks['obfuscated_text'] = {
     container.setAttribute('confounder', this.confounder);
     return container;
   },
-  typeblock: [{translatedName: "Obfuscated Text"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_TEXT_OBFUSCATE}]
 };
 
 Blockly.Blocks['text_is_string'] = {
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#isstring",
+  helpUrl: Blockly.Msg.LANG_TEXT_TEXT_IS_STRING_HELPURL,
   init: function() {
     this.setColour('#B32D5E');
     this.appendValueInput('ITEM')
-      .appendField("is a string?")
-      .appendField("thing");
+      .appendField(Blockly.Msg.LANG_TEXT_TEXT_IS_STRING_TITLE)
+      .appendField(Blockly.Msg.LANG_TEXT_TEXT_IS_STRING_INPUT_THING);
     this.setOutput(true, ['Boolean', 'String']);
-    this.setTooltip("Returns true if <code>thing</code> is a string.");
+    this.setTooltip(Blockly.Msg.LANG_TEXT_TEXT_IS_STRING_TOOLTIP);
   },
-  typeblock: [{translatedName: "is a string?"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_TEXT_IS_STRING_TITLE}]
 };
 
 Blockly.Blocks['text_reverse'] = {
   // String reverse.
   category: 'Text',
-  helpUrl: "/reference/blocks/text.html#reverse",
+  helpUrl: Blockly.Msg.LANG_TEXT_REVERSE_HELPURL,
   init: function () {
     this.setColour('#B32D5E');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('VALUE')
         .setCheck(['String'])
-        .appendField("reverse");
-    this.setTooltip("Reverse the given text.");
+        .appendField(Blockly.Msg.LANG_TEXT_REVERSE_INPUT);
+    this.setTooltip(Blockly.Msg.LANG_TEXT_REVERSE_TOOLTIP);
   },
-  typeblock: [{translatedName: "reverse"}]
+  typeblock: [{translatedName: Blockly.Msg.LANG_TEXT_REVERSE_INPUT}]
 };
 
 Blockly.Blocks['text_replace_mappings'] = {
@@ -679,18 +683,18 @@ Blockly.Blocks['text_replace_mappings'] = {
 
     this.appendValueInput('MAPPINGS')
       .setCheck(checkTypeMap)
-      .appendField("replace all mappings")
+      .appendField(Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_TITLE)
       .setAlign(Blockly.ALIGN_RIGHT)
 
     this.appendValueInput('TEXT')
       .setCheck(checkTypeText)
-      .appendField("in text")
+      .appendField(Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_INPUT_TEXT)
       .setAlign(Blockly.ALIGN_RIGHT)
 
     this.appendDummyInput()
-        .appendField("preferring")
+        .appendField(Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_INPUT_ORDER_PREFIX)
         .appendField(new Blockly.FieldDropdown(this.OPERATORS, Blockly.Blocks.text_replace_mappings.onchange), 'OP')
-        .appendField("order")
+        .appendField(Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_INPUT_ORDER)
         .setAlign(Blockly.ALIGN_RIGHT)
 
     this.setInputsInline(false);
@@ -703,20 +707,20 @@ Blockly.Blocks['text_replace_mappings'] = {
     });
   },
   typeblock: [{
-    translatedName: "longest string first",
+    translatedName: Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_OPERATOR_LONGEST_STRING_FIRST,
     dropDown: {
       titleName: 'OP',
       value: 'LONGEST_STRING_FIRST'
     }
   }, {
-    translatedName: "dictionary",
+    translatedName: Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_OPERATOR_DICTIONARY_ORDER,
     dropDown: {
       titleName: 'OP',
       value: 'DICTIONARY_ORDER'
     }
   }
   /*{
-    translatedName : "split at first",
+    translatedName : Blockly.Msg.LANG_TEXT_SPLIT_OPERATOR_SPLIT_AT_FIRST,
     dropDown: {
         titleName: 'OP',
         value: 'EARLIEST_OCCURRENCE'
@@ -736,7 +740,7 @@ Blockly.Blocks.text_replace_mappings.OPERATORS = function () {
 
 Blockly.Blocks.text_replace_mappings.TOOLTIPS = function () {
   return {
-    LONGEST_STRING_FIRST : "Returns a new text obtained by replacing all occurrences",
+    LONGEST_STRING_FIRST : Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_TOOLTIP_LONGEST_STRING_FIRST,
     DICTIONARY_ORDER : Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_TOOLTIP_DICTIONARY_ORDER
     //EARLIEST_OCCURRENCE : "tooltip"
   }
@@ -744,8 +748,8 @@ Blockly.Blocks.text_replace_mappings.TOOLTIPS = function () {
 
 Blockly.Blocks.text_replace_mappings.HELPURLS = function () {
   return {
-    LONGEST_STRING_FIRST : "/reference/blocks/text.html#replaceallmappingslongeststring",
-    DICTIONARY_ORDER : "/reference/blocks/text.html#replaceallmappingsdictionary"
+    LONGEST_STRING_FIRST : Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_HELPURL_LONGEST_STRING_FIRST,
+    DICTIONARY_ORDER : Blockly.Msg.LANG_TEXT_REPLACE_ALL_MAPPINGS_HELPURL_DICTIONARY_ORDER
     //EARLIEST_OCCURRENCE : "help"
   }
 }

@@ -19,21 +19,21 @@ Blockly.Blocks['dictionaries_create_with'] = {
   category: 'Dictionaries',
   helpUrl: function() {
     if (this.itemCount_ > 0) {
-      return "/reference/blocks/dictionaries.html#create-empty-dictionary";
+      return Blockly.Msg.LANG_DICTIONARIES_CREATE_WITH_EMPTY_HELPURL;
     } else {
-      return "/reference/blocks/dictionaries.html#make-a-dictionary";
+      return Blockly.Msg.LANG_DICTIONARIES_MAKE_DICTIONARY_HELPURL;
     }
   },
   init: function() {
     this.setColour('#2D1799');
     this.appendValueInput('ADD0')
-        .appendField("make a dictionary")
+        .appendField(Blockly.Msg.LANG_DICTIONARIES_MAKE_DICTIONARY_TITLE)
         .setCheck(['Pair']);
     this.appendValueInput('ADD1')
         .setCheck(['Pair']);
     this.setOutput(true, ['Dictionary', 'String', 'Array']);
     this.setMutator(new Blockly.Mutator(['dictionaries_mutator_pair']));
-    this.setTooltip("Create a dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_MAKE_DICTIONARY_TOOLTIP);
     this.itemCount_ = 2;
     this.emptyInputName = 'EMPTY';
     this.repeatingInputName = 'ADD';
@@ -103,19 +103,19 @@ Blockly.Blocks['dictionaries_create_with'] = {
   saveConnections: Blockly.saveConnections,
   addEmptyInput: function(){
     this.appendDummyInput(this.emptyInputName)
-      .appendField("create empty dictionary");
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_CREATE_EMPTY_TITLE);
   },
   addInput: function(inputNum){
     var input = this.appendValueInput(this.repeatingInputName + inputNum)
         .setCheck(['Pair']);
     if(inputNum === 0){
-      input.appendField("make a dictionary");
+      input.appendField(Blockly.Msg.LANG_DICTIONARIES_MAKE_DICTIONARY_TITLE);
     }
     return input;
   },
   updateContainerBlock: function(containerBlock) {
     containerBlock.setFieldValue(Blockly.Msg.LANG_DICTIONARIES_CREATE_WITH_CONTAINER_TITLE_ADD,"CONTAINER_TEXT");
-    containerBlock.setTooltip("Add, remove, or reorder sections to reconfigure this dictionary block.");
+    containerBlock.setTooltip(Blockly.Msg.LANG_DICTIONARIES_CREATE_WITH_CONTAINER_TOOLTIP);
   },
   /**
    * Create a human-readable text representation of this block and any children.
@@ -155,9 +155,9 @@ Blockly.Blocks['dictionaries_create_with'] = {
   },
   // create type blocks for both make a dictionary (two pairs) and create empty dictionary
   typeblock: [
-      { translatedName: "make a dictionary",
+      { translatedName: Blockly.Msg.LANG_DICTIONARIES_MAKE_DICTIONARY_TITLE,
         mutatorAttributes: { items: 2 } },
-      { translatedName: "create empty dictionary",
+      { translatedName: Blockly.Msg.LANG_DICTIONARIES_CREATE_EMPTY_TITLE,
         mutatorAttributes: { items: 0 } }]
 };
 
@@ -166,116 +166,116 @@ Blockly.Blocks['dictionaries_mutator_pair'] = {
   init: function() {
     this.setColour('#2D1799');
     this.appendDummyInput()
-        .appendField("pair");
+        .appendField(Blockly.Msg.LANG_DICTIONARIES_PAIR_TITLE);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Add a pair to the dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_PAIR_TOOLTIP);
   },
   contextMenu: false
 };
 
 Blockly.Blocks['pair'] = {
   category: 'Dictionaries',
-  helpUrl: "/reference/blocks/dictionaries.html#pair",
+  helpUrl: Blockly.Msg.LANG_DICTIONARIES_PAIR_HELPURL,
   init: function() {
     this.setColour('#2D1799');
     this.setOutput(true, ['Pair', 'String', 'Array']);
     var checkTypeAny = null;
     var checkTypeKey = ['Key'];
-    this.interpolateMsg("key %1 value %2",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_PAIR_INPUT,
             ['KEY', checkTypeKey, Blockly.ALIGN_RIGHT],
             ['VALUE', checkTypeAny, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
-    this.setTooltip("Add a pair to the dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_PAIR_TOOLTIP);
     this.setInputsInline(true);
   },
-  typeblock: [{ translatedName: "make a pair" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_MAKE_PAIR_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_lookup'] = {
   // Look up in a dictionary.
   category: 'Dictionaries',
-  helpUrl : "/reference/blocks/dictionaries.html#get-value-for-key",
+  helpUrl : Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_LOOKUP_HELPURL,
   init: function() {
     this.setColour('#2D1799');
     this.setOutput(true, null);
     var checkTypeDict = ['Dictionary'];
     var checkTypeAny = null;
     var checkTypeKey = ['Key'];
-    this.interpolateMsg("get value for key %1 in dictionary %2 or if not found %3",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_LOOKUP_INPUT,
       ['KEY', checkTypeKey, Blockly.ALIGN_RIGHT],
       ['DICT', checkTypeDict, Blockly.ALIGN_RIGHT],
       ['NOTFOUND', checkTypeAny, Blockly.ALIGN_RIGHT],
       Blockly.ALIGN_RIGHT);
-    this.setTooltip("Returns the value in the dictionary associated with the key.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_LOOKUP_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "get value for key in dictionary" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_LOOKUP_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_set_pair'] = {
   category: 'Dictionaries',
-  helpUrl: "/reference/blocks/dictionaries.html#set-value-for-key",
+  helpUrl: Blockly.Msg.LANG_DICTIONARIES_SET_PAIR_HELPURL,
   init: function() {
     this.setColour('#2D1799');
     var checkTypeDict = ['Dictionary'];
     var checkTypeKey = ['Key'];
-    this.interpolateMsg("set value for key %1 in dictionary %2 to %3",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_SET_PAIR_INPUT,
             ['KEY', checkTypeKey, Blockly.ALIGN_RIGHT],
             ['DICT', checkTypeDict, Blockly.ALIGN_RIGHT],
             ['VALUE', null, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Set a pair in a dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_SET_PAIR_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "set value for key in dictionary to" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_SET_PAIR_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_delete_pair'] = {
   category: 'Dictionaries',
-  helpUrl: "/reference/blocks/dictionaries.html#delete-entry-for-key",
+  helpUrl: Blockly.Msg.LANG_DICTIONARIES_DELETE_PAIR_HELPURL,
   init: function() {
     this.setColour('#2D1799');
     var checkTypeDict = ['Dictionary'];
     var checkTypeKey = ['Key'];
-    this.interpolateMsg("remove entry for key %2 from dictionary %1",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_DELETE_PAIR_INPUT,
             ['DICT', checkTypeDict, Blockly.ALIGN_RIGHT],
             ['KEY', checkTypeKey, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Delete a pair in a dictionary given its key.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_DELETE_PAIR_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "remove entry for key from dictionary" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_DELETE_PAIR_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_recursive_lookup'] = {
   // Look up in a dictionary.
   category: 'Dictionaries',
-  helpUrl : "/reference/blocks/dictionaries.html#get-value-at-key-path",
+  helpUrl : Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_LOOKUP_HELPURL,
   init: function() {
     this.setColour('#2D1799');
     this.setOutput(true, null);
     var checkTypeDict = ['Dictionary'];
     var checkTypeAny = null;
     var checkTypeList = ['Array'];
-    this.interpolateMsg("get value at key path %1 in dictionary %2 or if not found %3",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_LOOKUP_INPUT,
             ['KEYS', checkTypeList, Blockly.ALIGN_RIGHT],
             ['DICT', checkTypeDict, Blockly.ALIGN_RIGHT],
             ['NOTFOUND', checkTypeAny, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
-    this.setTooltip("Returns the value in the nested dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_LOOKUP_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "get value for key path in dictionary" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_LOOKUP_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_recursive_set'] = {
   category: 'Dictionaries',
-  helpUrl: "/reference/blocks/dictionaries.html#set-value-for-key-path",
+  helpUrl: Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_SET_HELPURL,
   init: function() {
     this.setColour('#2D1799');
     this.setPreviousStatement(true);
@@ -283,15 +283,15 @@ Blockly.Blocks['dictionaries_recursive_set'] = {
     var checkTypeDict = ['Dictionary'];
     var checkTypeAny = null;
     var checkTypeList = ['Array'];
-    this.interpolateMsg("set value for key path %1 in dictionary %2 to %3",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_SET_INPUT,
       ['KEYS', checkTypeList, Blockly.ALIGN_RIGHT],
       ['DICT', checkTypeDict, Blockly.ALIGN_RIGHT],
       ['VALUE', checkTypeAny, Blockly.ALIGN_RIGHT],
       Blockly.ALIGN_RIGHT);
-    this.setTooltip("Sets the value at a path in a tree starting from the given dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_SET_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "set value for key path in dictionary to" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_DICTIONARY_RECURSIVE_SET_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_getters'] = {
@@ -305,8 +305,9 @@ Blockly.Blocks['dictionaries_getters'] = {
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('DICT')
         .setCheck(['Dictionary'])
-        .appendField("get")
-        .appendField(new Blockly.FieldDropdown(this.OPERATORS), 'OP');
+        .appendField(Blockly.Msg.LANG_DICTIONARIES_GETTERS_TITLE)
+        .appendField(new Blockly.FieldDropdown([[Blockly.Msg.LANG_DICTIONARIES_GET_KEYS_TITLE, 'KEYS'],
+    [Blockly.Msg.LANG_DICTIONARIES_GET_VALUES_TITLE, 'VALUES']]), 'OP');
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function () {
@@ -315,13 +316,13 @@ Blockly.Blocks['dictionaries_getters'] = {
     });
   },
   typeblock: [{
-    translatedName: "get dictionary keys",
+    translatedName: Blockly.Msg.LANG_DICTIONARIES_GET_KEYS_TYPEBLOCK,
     dropDown: {
       titleName: 'OP',
       value: 'KEYS'
     }
   }, {
-    translatedName: "get dictionary values",
+    translatedName: Blockly.Msg.LANG_DICTIONARIES_GET_VALUES_TYPEBLOCK,
     dropDown: {
       titleName: 'OP',
       value: 'VALUES'
@@ -336,15 +337,15 @@ Blockly.Blocks['dictionaries_getters'].OPERATORS = function () {
 
 Blockly.Blocks['dictionaries_getters'].TOOLTIPS = function () {
   return {
-    'KEYS': "Returns a list of all of the keys in the dictionary.",
-    'VALUES': "Returns a list of all of the values in the dictionary."
+    'KEYS': Blockly.Msg.LANG_DICTIONARIES_GET_KEYS_TOOLTIP,
+    'VALUES': Blockly.Msg.LANG_DICTIONARIES_GET_VALUES_TOOLTIP
   }
 };
 
 Blockly.Blocks['dictionaries_getters'].HELPURLS = function() {
   return {
-    'KEYS': "/reference/blocks/dictionaries.html#get-keys",
-    'VALUES': "/reference/blocks/dictionaries.html#get-values"
+    'KEYS': Blockly.Msg.LANG_DICTIONARIES_GET_KEYS_HELPURL,
+    'VALUES': Blockly.Msg.LANG_DICTIONARIES_GET_VALUES_HELPURL
   }
 };
 
@@ -359,7 +360,7 @@ Blockly.Blocks['dictionaries_get_values'] = {
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('DICT')
         .setCheck(['Dictionary'])
-        .appendField("get")
+        .appendField(Blockly.Msg.LANG_DICTIONARIES_GETTERS_TITLE)
         .appendField(new Blockly.FieldDropdown(Blockly.Blocks.dictionaries_getters.OPERATORS), 'OP');
     this.setFieldValue('VALUES', "OP");
     // Assign 'this' to a variable for use in the closures below.
@@ -373,148 +374,148 @@ Blockly.Blocks['dictionaries_get_values'] = {
 Blockly.Blocks['dictionaries_is_key_in'] = {
    // Checks if a key is in a dictionary
   category : 'Dictionaries',
-  // helpUrl : "/reference/blocks/lists.html#inlist",
+  // helpUrl : Blockly.Msg.LANG_LISTS_IS_IN_HELPURL,
   init : function() {
     this.setColour('#2D1799');
     var checkTypeDict = ['Dictionary'];
     var checkTypeKey = ['Key'];
-    this.interpolateMsg("is key in dictionary? key %1 dictionary %2",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_IS_KEY_IN_INPUT,
             ['KEY', checkTypeKey, Blockly.ALIGN_RIGHT],
             ['DICT', checkTypeDict, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setOutput(true, ['Boolean', 'String']);
-    this.setTooltip("Check if a key is in a dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_IS_KEY_IN_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "is key in dict?" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_IS_KEY_IN_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_length'] = {
    // Gets all the values in a dictionary
   category : 'Dictionaries',
-  //helpUrl : "/reference/blocks/lists.html#lengthoflist",
+  //helpUrl : Blockly.Msg.LANG_LISTS_LENGTH_HELPURL,
   init : function() {
     this.setColour('#2D1799');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('DICT')
       .setCheck(['Dictionary'])
-      .appendField("size of dictionary")
-      .appendField("dictionary");
-    this.setTooltip("Returns the number of key-value pairs in the dictionary.");
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_LENGTH_TITLE)
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_LENGTH_INPUT);
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_LENGTH_TOOLTIP);
   },
-  typeblock: [{ translatedName: "size of dictionary" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_LENGTH_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_alist_to_dict'] = {
    // Gets all the values in a dictionary
   category : 'Dictionaries',
-  //helpUrl : "/reference/blocks/lists.html#lengthoflist",
+  //helpUrl : Blockly.Msg.LANG_LISTS_LENGTH_HELPURL,
   init : function() {
     this.setColour('#2D1799');
     this.setOutput(true, ['Dictionary', 'String', 'Array']);
     this.appendValueInput('PAIRS')
       .setCheck(['Array'])
-      .appendField("list of pairs to dictionary")
-      .appendField("pairs");
-    this.setTooltip("Converts a list of pairs to a dictionary.");
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_ALIST_TO_DICT_TITLE)
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_ALIST_TO_DICT_INPUT);
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_ALIST_TO_DICT_TOOLTIP);
   },
-  typeblock: [{ translatedName: "list of pairs to dictionary" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_ALIST_TO_DICT_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_dict_to_alist'] = {
    // Gets all the values in a dictionary
   category : 'Dictionaries',
-  //helpUrl : "/reference/blocks/lists.html#lengthoflist",
+  //helpUrl : Blockly.Msg.LANG_LISTS_LENGTH_HELPURL,
   init : function() {
     this.setColour('#2D1799');
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('DICT')
       .setCheck(['Dictionary'])
-      .appendField("dictionary to list of pairs")
-      .appendField("dictionary");
-    this.setTooltip("Converts a dictionary to a list of pairs.");
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_DICT_TO_ALIST_TITLE)
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_DICT_TO_ALIST_INPUT);
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_DICT_TO_ALIST_TOOLTIP);
   },
-  typeblock: [{ translatedName: "dictionary to list of pairs" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_DICT_TO_ALIST_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_copy'] = {
    // Gets all the values in a dictionary
   category : 'Dictionaries',
-  //helpUrl : "/reference/blocks/lists.html#lengthoflist",
+  //helpUrl : Blockly.Msg.LANG_LISTS_LENGTH_HELPURL,
   init : function() {
     this.setColour('#2D1799');
     this.setOutput(true, ['Dictionary', 'String', 'Array']);
     this.appendValueInput('DICT')
       .setCheck(['Dictionary'])
-      .appendField("copy dictionary")
-      .appendField("dictionary");
-    this.setTooltip("Returns a shallow copy of the dictionary");
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_COPY_TITLE)
+      .appendField(Blockly.Msg.LANG_DICTIONARIES_COPY_INPUT);
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_COPY_TOOLTIP);
   },
-  typeblock: [{ translatedName: "copy dictionary" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_COPY_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_combine_dicts'] = {
    // Checks if a key is in a dictionary
   category : 'Dictionaries',
-  // helpUrl : "/reference/blocks/lists.html#inlist",
+  // helpUrl : Blockly.Msg.LANG_LISTS_IS_IN_HELPURL,
   init : function() {
     this.setColour('#2D1799');
     var checkTypeDict = ['Dictionary'];
-    this.interpolateMsg("merge into dictionary %1 from dictionary %2",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_COMBINE_DICTS_INPUT,
             ['DICT1', checkTypeDict, Blockly.ALIGN_RIGHT],
             ['DICT2', checkTypeDict, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Copies the pairs of the 'From' dictionary into the 'To' dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_COMBINE_DICTS_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "combine dictionaries" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_COMBINE_DICTS_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_walk_tree'] = {
   category: 'Dictionaries',
-  helpUrl: "/reference/blocks/dictionaries.html#list-by-walking-key-path",
+  helpUrl: Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_HELPURL,
   init: function() {
     this.setColour('#2D1799');
     var checkTypeDict = ['Dictionary'];
     var checkTypeList = ['Array'];
-    this.interpolateMsg("list by walking key path %1 in dictionary or list %2",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_TITLE,
       ['PATH', checkTypeList, Blockly.ALIGN_RIGHT],
       ['DICT', checkTypeDict, Blockly.ALIGN_RIGHT],
       Blockly.ALIGN_RIGHT);
     this.setOutput(true, ['Array', 'String']);
-    this.setTooltip("Starts from the given dictionary and follows it and its children's keys based on the given path, returning a list of nodes found at the end of the walk.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "list by walking key path %1 in dictionary or list %2" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_walk_all'] = {
   category: 'Dictionaries',
-  helpUrl: "/reference/blocks/dictionaries.html#walk-all-at-level",
+  helpUrl: Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_ALL_HELPURL,
   init: function() {
     this.setColour('#2D1799');
-    this.interpolateMsg("walk all at level",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_ALL_TITLE,
       Blockly.ALIGN_LEFT);
     this.setOutput(true, 'ALL_OPERATOR');
-    this.setTooltip("Used in the list by walking key path block, explores every node at a given level on the walk.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_ALL_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "walk all at level" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_WALK_TREE_ALL_TITLE }]
 };
 
 Blockly.Blocks['dictionaries_is_dict'] = {
    // Gets all the values in a dictionary
   category : 'Dictionaries',
-  //helpUrl : "/reference/blocks/lists.html#lengthoflist",
+  //helpUrl : Blockly.Msg.LANG_LISTS_LENGTH_HELPURL,
   init : function() {
     this.setColour('#2D1799');
     this.setOutput(true, ['Boolean', 'String']);
-    this.interpolateMsg("is a dictionary? %1",
+    this.interpolateMsg(Blockly.Msg.LANG_DICTIONARIES_IS_DICT_TITLE,
       ['THING', null, Blockly.ALIGN_RIGHT], Blockly.ALIGN_RIGHT);
-    this.setTooltip("Tests if something is a dictionary.");
+    this.setTooltip(Blockly.Msg.LANG_DICTIONARIES_IS_DICT_TOOLTIP);
   },
-  typeblock: [{ translatedName: "is a dictionary? %1" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_DICTIONARIES_IS_DICT_TITLE }]
 };
 

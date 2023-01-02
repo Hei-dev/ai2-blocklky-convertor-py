@@ -17,15 +17,15 @@
 Blockly.Blocks['lists_create_with'] = {
   // Create a list with any number of elements of any type.
   category: 'Lists',
-  helpUrl: "/reference/blocks/lists.html#makealist",
+  helpUrl: Blockly.Msg.LANG_LISTS_CREATE_WITH_EMPTY_HELPURL,
   init: function() {
     this.setColour('#49A6D4');
     this.appendValueInput('ADD0')
-        .appendField("make a list");
+        .appendField(Blockly.Msg.LANG_LISTS_CREATE_WITH_TITLE_MAKE_LIST);
     this.appendValueInput('ADD1');
     this.setOutput(true, ['Array', 'String']);
     this.setMutator(new Blockly.Mutator(['lists_create_with_item']));
-    this.setTooltip("Create a list with any number of items.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_CREATE_WITH_TOOLTIP);
     this.itemCount_ = 2;
     this.emptyInputName = 'EMPTY';
     this.repeatingInputName = 'ADD';
@@ -39,12 +39,12 @@ Blockly.Blocks['lists_create_with'] = {
   saveConnections: Blockly.saveConnections,
   addEmptyInput: function(){
     this.appendDummyInput(this.emptyInputName)
-      .appendField("create empty list");
+      .appendField(Blockly.Msg.LANG_LISTS_CREATE_EMPTY_TITLE);
   },
   addInput: function(inputNum){
     var input = this.appendValueInput(this.repeatingInputName + inputNum);
     if(inputNum === 0){
-      input.appendField("make a list");
+      input.appendField(Blockly.Msg.LANG_LISTS_CREATE_WITH_TITLE_MAKE_LIST);
     }
     return input;
   },
@@ -53,9 +53,9 @@ Blockly.Blocks['lists_create_with'] = {
   },
   // create type blocks for both make a list (two items) and create empty list
   typeblock: [
-      { translatedName: "make a list",
+      { translatedName: Blockly.Msg.LANG_LISTS_CREATE_WITH_TITLE_MAKE_LIST,
         mutatorAttributes: { items: 2 } },
-      { translatedName: "create empty list",
+      { translatedName: Blockly.Msg.LANG_LISTS_CREATE_EMPTY_TITLE,
         mutatorAttributes: { items: 0 } }]
 };
 
@@ -64,10 +64,10 @@ Blockly.Blocks['lists_create_with_item'] = {
   init: function() {
     this.setColour('#49A6D4');
     this.appendDummyInput()
-        .appendField("item");
+        .appendField(Blockly.Msg.LANG_LISTS_CREATE_WITH_ITEM_TITLE);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Add an item to the list.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_CREATE_WITH_ITEM_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -76,19 +76,19 @@ Blockly.Blocks['lists_create_with_item'] = {
 Blockly.Blocks['lists_add_items'] = {
   // Create a list with any number of elements of any type.
   category: 'Lists',
-  helpUrl: "/reference/blocks/lists.html#additems",
+  helpUrl: Blockly.Msg.LANG_LISTS_ADD_ITEMS_HELPURL,
   init: function() {
     this.setColour('#49A6D4');
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("add items to list")
-      .appendField(" list");
+      .appendField(Blockly.Msg.LANG_LISTS_ADD_ITEMS_TITLE_ADD)
+      .appendField(Blockly.Msg.LANG_LISTS_ADD_ITEMS_INPUT_LIST);
     this.appendValueInput('ITEM0')
-      .appendField("item")
+      .appendField(Blockly.Msg.LANG_LISTS_ADD_ITEMS_INPUT_ITEM)
       .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Adds items to the end of a list.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_ADD_ITEMS_TOOLTIP);
     this.setMutator(new Blockly.Mutator(['lists_add_items_item']));
     this.itemCount_ = 1;
     this.emptyInputName = null;
@@ -109,9 +109,9 @@ Blockly.Blocks['lists_add_items'] = {
   },
   updateContainerBlock: function(containerBlock) {
     containerBlock.setFieldValue(Blockly.Msg.LANG_LISTS_ADD_ITEMS_CONTAINER_TITLE_ADD,"CONTAINER_TEXT");
-    containerBlock.setTooltip("Add, remove, or reorder sections to reconfigure this list block.");
+    containerBlock.setTooltip(Blockly.Msg.LANG_LISTS_ADD_ITEMS_CONTAINER_TOOLTIP);
   },
-  typeblock: [{ translatedName: "add items to list" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_ADD_ITEMS_TITLE_ADD }]
 };
 
 Blockly.Blocks['lists_add_items_item'] = {
@@ -119,10 +119,10 @@ Blockly.Blocks['lists_add_items_item'] = {
   init: function() {
     this.setColour('#49A6D4');
     this.appendDummyInput()
-        .appendField("item");
+        .appendField(Blockly.Msg.LANG_LISTS_ADD_ITEM_TITLE);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Add an item to the list.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_ADD_ITEM_TOOLTIP);
     this.contextMenu = false;
   }
 };
@@ -130,345 +130,342 @@ Blockly.Blocks['lists_add_items_item'] = {
 Blockly.Blocks['lists_is_in'] = {
   // Is in list?.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#inlist",
+  helpUrl : Blockly.Msg.LANG_LISTS_IS_IN_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     var checkTypeList = ['Array'];
     var checkTypeAny = null;
-    this.interpolateMsg("is in list? thing %1 list %2",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_IS_IN_INPUT,
             ['ITEM', checkTypeAny, Blockly.ALIGN_RIGHT],
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setOutput(true, ['Boolean', 'String']);
-    this.setTooltip("Returns true if the the thing is an item in the list, and false if not.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_IS_IN_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "is in list?" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_IS_IN_TITLE_IS_IN }]
 };
 
 
 Blockly.Blocks['lists_length'] = {
   // Length of list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#lengthoflist",
+  helpUrl : Blockly.Msg.LANG_LISTS_LENGTH_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("length of list")
-      .appendField("list");
-    this.setTooltip("Counts the number of items in a list.");
+      .appendField(Blockly.Msg.LANG_LISTS_LENGTH_INPUT_LENGTH)
+      .appendField(Blockly.Msg.LANG_LISTS_LENGTH_INPUT_LIST);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_LENGTH_TOOLTIP);
   },
-  typeblock: [{ translatedName: "length of list" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_LENGTH_INPUT_LENGTH }]
 };
 
 Blockly.Blocks['lists_is_empty'] = {
   // Is the list empty?.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#islistempty",
+  helpUrl : Blockly.Msg.LANG_LISTS_IS_EMPTY_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Boolean', 'String']);
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("is list empty?")
-      .appendField("list");
-    this.setTooltip("Returns true if the list is empty.");
+      .appendField(Blockly.Msg.LANG_LISTS_TITLE_IS_EMPTY)
+      .appendField(Blockly.Msg.LANG_LISTS_INPUT_LIST);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_IS_EMPTY_TOOLTIP);
   },
-  typeblock: [{ translatedName: "is list empty?" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_TITLE_IS_EMPTY }]
 };
 
 Blockly.Blocks['lists_pick_random_item'] = {
   // Length of list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#pickrandomitem",
+  helpUrl : Blockly.Msg.LANG_LISTS_PICK_RANDOM_ITEM_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, null);
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("pick a random item")
-      .appendField("list");
-    this.setTooltip("Pick an item at random from the list.");
+      .appendField(Blockly.Msg.LANG_LISTS_PICK_RANDOM_TITLE_PICK_RANDOM)
+      .appendField(Blockly.Msg.LANG_LISTS_PICK_RANDOM_ITEM_INPUT_LIST);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_PICK_RANDOM_TOOLTIP);
   },
-  typeblock: [{ translatedName: "pick a random item" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_PICK_RANDOM_TITLE_PICK_RANDOM }]
 };
 
 Blockly.Blocks['lists_position_in'] = {
   // Postion of item in list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#indexinlist",
+  helpUrl : Blockly.Msg.LANG_LISTS_POSITION_IN_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Number', 'String', 'Key']);
     var checkTypeList = ['Array'];
     var checkTypeAny = null;
-    this.interpolateMsg("index in list  thing %1 list %2",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_POSITION_IN_INPUT,
             ['ITEM', checkTypeAny, Blockly.ALIGN_RIGHT],
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
-    this.setTooltip("Find the position of the thing in the list. If it's not in the list, return 0.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_POSITION_IN_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "index in list" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_POSITION_IN_TITLE_POSITION }]
 };
 
 
 Blockly.Blocks['lists_select_item'] = {
   // Select from list an item.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#selectlistitem",
+  helpUrl : Blockly.Msg.LANG_LISTS_SELECT_ITEM_TITLE_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, null);
     var checkTypeList = ['Array'];
     var checkTypeNumber = ['Number'];
-    this.interpolateMsg("select list item  list %1 index %2",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_SELECT_ITEM_INPUT,
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             ['NUM', checkTypeNumber, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
-    this.setTooltip("Returns the item at position index in the list.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_SELECT_ITEM_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "select list item" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_SELECT_ITEM_TITLE_SELECT }]
 };
 
 Blockly.Blocks['lists_insert_item'] = {
   // Insert Item in list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#insert",
+  helpUrl : Blockly.Msg.LANG_LISTS_INSERT_ITEM_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     var checkTypeList = ['Array'];
     var checkTypeNumber = ['Number'];
     var checkTypeAny = null;
-    this.interpolateMsg("insert list item  list %1 index %2 item %3",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_INSERT_INPUT,
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             ['INDEX', checkTypeNumber, Blockly.ALIGN_RIGHT],
             ['ITEM', checkTypeAny, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Insert an item into a list at the specified position.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_INSERT_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "insert list item" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_INSERT_TITLE_INSERT_LIST }]
 };
 
 Blockly.Blocks['lists_replace_item'] = {
   // Replace Item in list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#replace",
+  helpUrl : Blockly.Msg.LANG_LISTS_REPLACE_ITEM_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     var checkTypeList = ['Array'];
     var checkTypeNumber = ['Number'];
     var checkTypeAny = null;
-    this.interpolateMsg("replace list item  list %1 index %2 replacement %3",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_REPLACE_ITEM_INPUT,
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             ['NUM', checkTypeNumber, Blockly.ALIGN_RIGHT],
             ['ITEM', checkTypeAny, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Replaces the nth item in a list.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_REPLACE_ITEM_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "replace list item" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_REPLACE_ITEM_TITLE_REPLACE }]
 };
 
 Blockly.Blocks['lists_remove_item'] = {
   // Remove Item in list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#removeitem",
+  helpUrl : Blockly.Msg.LANG_LISTS_REMOVE_ITEM_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     var checkTypeList = ['Array'];
     var checkTypeNumber = ['Number'];
-    this.interpolateMsg("remove list item  list %1 index %2",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_REMOVE_ITEM_INPUT,
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             ['INDEX', checkTypeNumber, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Removes the item at the specified position from the list.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_REMOVE_ITEM_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "remove list item" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_REMOVE_ITEM_TITLE_REMOVE }]
 };
 
 Blockly.Blocks['lists_append_list'] = {
   // Append to list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#append",
+  helpUrl : Blockly.Msg.LANG_LISTS_APPEND_LIST_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     var checkTypeList = ['Array'];
-    this.interpolateMsg("append to list  list1 %1 list2 %2",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_APPEND_LIST_INPUT,
             ['LIST0', checkTypeList, Blockly.ALIGN_RIGHT],
             ['LIST1', checkTypeList, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip("Appends all the items in list2 onto the end of list1. After the append, list1 will include these additional elements, but list2 will be unchanged.");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_APPEND_LIST_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "append to list" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_APPEND_LIST_TITLE_APPEND }]
 };
 
 
 Blockly.Blocks['lists_copy'] = {
   // Make a copy of list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#copy",
+  helpUrl : Blockly.Msg.LANG_LISTS_COPY_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("copy list")
-      .appendField("list");
-    this.setTooltip("Makes a copy of a list, including copying all sublists");
+      .appendField(Blockly.Msg.LANG_LISTS_COPY_TITLE_COPY)
+      .appendField(Blockly.Msg.LANG_LISTS_COPY_INPUT_LIST);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_COPY_TOOLTIP);
   },
-  typeblock: [{ translatedName: "copy list" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_COPY_TITLE_COPY }]
 };
 
 Blockly.Blocks['lists_is_list'] = {
   // Is a list?
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#isalist",
+  helpUrl : Blockly.Msg.LANG_LISTS_IS_LIST_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Boolean', 'String']);
     this.appendValueInput('ITEM')
-      .appendField("is a list?")
-      .appendField("thing");
-    this.setTooltip("Tests if something is a list.");
+      .appendField(Blockly.Msg.LANG_LISTS_IS_LIST_TITLE_IS_LIST)
+      .appendField(Blockly.Msg.LANG_LISTS_IS_LIST_INPUT_THING);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_IS_LIST_TOOLTIP);
   },
-  typeblock: [{ translatedName: "is a list?" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_IS_LIST_TITLE_IS_LIST }]
 };
 
 Blockly.Blocks['lists_reverse'] = {
   // Reverse the list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#reverse",
+  helpUrl : Blockly.Msg.LANG_LISTS_REVERSE_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("reverse list")
-      .appendField("list");
-    this.setTooltip("Reverses the order of input list and returns it as a new list.");
+      .appendField(Blockly.Msg.LANG_LISTS_REVERSE_TITLE_REVERSE)
+      .appendField(Blockly.Msg.LANG_LISTS_REVERSE_INPUT_LIST);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_REVERSE_TOOLTIP);
   },
-  typeblock: [{ translatedName: "reverse list" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_REVERSE_TITLE_REVERSE }]
 }
 
 Blockly.Blocks['lists_to_csv_row'] = {
   // Make a csv row from list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#listtocsvrow",
+  helpUrl : Blockly.Msg.LANG_LISTS_TO_CSV_ROW_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("list to csv row")
-      .appendField("list");
-    this.setTooltip("Interprets the list as a row of a table and returns a CSV (comma-separated value) text representing the row. Each item in the row list is considered to be a field, and is quoted with double-quotes in the resulting CSV text. Items are separated by commas. The returned row text does not have a line separator at the end.");
+      .appendField(Blockly.Msg.LANG_LISTS_TO_CSV_ROW_TITLE_TO_CSV)
+      .appendField(Blockly.Msg.LANG_LISTS_TO_CSV_ROW_INPUT_LIST);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_TO_CSV_ROW_TOOLTIP);
   },
-  typeblock: [{ translatedName: "list to csv row" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_TO_CSV_ROW_TITLE_TO_CSV }]
 };
 
 Blockly.Blocks['lists_to_csv_table'] = {
   // Make a csv table from list.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#listtocsvtable",
+  helpUrl : Blockly.Msg.LANG_LISTS_TO_CSV_TABLE_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Number', 'String', 'Key']);
     this.appendValueInput('LIST')
       .setCheck(['Array'])
-      .appendField("list to csv table")
-      .appendField("list");
-    this.setTooltip("Interprets the list as a table in row-major format and returns a CSV (comma-separated value) text representing the table. Each item in the list should itself be a list representing a row of the CSV table. Each item in the row list is considered to be a field, and is quoted with double-quotes in the resulting CSV text. In the returned text, items in rows are separated by commas and rows are separated by CRLF (\r\
-).");
+      .appendField(Blockly.Msg.LANG_LISTS_TO_CSV_TABLE_TITLE_TO_CSV)
+      .appendField(Blockly.Msg.LANG_LISTS_TO_CSV_TABLE_INPUT_LIST);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_TO_CSV_TABLE_TOOLTIP);
   },
-  typeblock: [{ translatedName: "list to csv table" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_TO_CSV_TABLE_TITLE_TO_CSV }]
 };
 
 Blockly.Blocks['lists_from_csv_row'] = {
   // Make list from csv row.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#listfromcsvrow",
+  helpUrl : Blockly.Msg.LANG_LISTS_FROM_CSV_ROW_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('TEXT')
       .setCheck(['String'])
-      .appendField("list from csv row")
-      .appendField("text");
-    this.setTooltip("Parses a text as a CSV (comma-separated value) formatted row to produce a list of fields. It is an error for the row text to contain unescaped newlines inside fields (effectively, multiple lines). It is okay for the row text to end in a single newline or CRLF.");
+      .appendField(Blockly.Msg.LANG_LISTS_FROM_CSV_ROW_TITLE_FROM_CSV)
+      .appendField(Blockly.Msg.LANG_LISTS_FROM_CSV_ROW_INPUT_TEXT);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_FROM_CSV_ROW_TOOLTIP);
   },
-  typeblock: [{ translatedName: "list from csv row" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_FROM_CSV_ROW_TITLE_FROM_CSV }]
 };
 
 Blockly.Blocks['lists_from_csv_table'] = {
   // Make list from csv table.
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#listfromcsvtable",
+  helpUrl : Blockly.Msg.LANG_LISTS_FROM_CSV_TABLE_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Array', 'String']);
     this.appendValueInput('TEXT')
       .setCheck(['String'])
-      .appendField("list from csv table")
-      .appendField("text");
-    this.setTooltip("Parses a text as a CSV (comma-separated value) formatted table to produce a list of rows, each of which is a list of fields. Rows can be separated by newlines (\
-) or CRLF (\r\
-).");
+      .appendField(Blockly.Msg.LANG_LISTS_FROM_CSV_TABLE_TITLE_FROM_CSV)
+      .appendField(Blockly.Msg.LANG_LISTS_FROM_CSV_TABLE_INPUT_TEXT);
+    this.setTooltip(Blockly.Msg.LANG_LISTS_FROM_CSV_TABLE_TOOLTIP);
   },
-  typeblock: [{ translatedName: "list from csv table" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_FROM_CSV_TABLE_TITLE_FROM_CSV }]
 };
 
 Blockly.Blocks['lists_lookup_in_pairs'] = {
   // Look up in a list of pairs (key, value).
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#lookuppairs",
+  helpUrl : Blockly.Msg.LANG_LISTS_LOOKUP_IN_PAIRS_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, null);
     var checkTypeList = ['Array'];
     var checkTypeNumber = ['Number'];
     var checkTypeAny = null;
-    this.interpolateMsg("look up in pairs  key %1 pairs %2 notFound %3",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_LOOKUP_IN_PAIRS_INPUT,
             ['KEY', checkTypeAny, Blockly.ALIGN_RIGHT],
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             ['NOTFOUND', checkTypeAny, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
-    this.setTooltip("Returns the value associated with the key in the list of pairs");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_LOOKUP_IN_PAIRS_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "look up in pairs" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_LOOKUP_IN_PAIRS_TITLE_LOOKUP_IN_PAIRS }]
 };
 
 Blockly.Blocks['lists_join_with_separator'] = {
   // Joins list items into a single string separated by specified separator
   category : 'Lists',
-  helpUrl : "/reference/blocks/lists.html#joinwithseparator",
+  helpUrl : Blockly.Msg.LANG_LISTS_JOIN_WITH_SEPARATOR_HELPURL,
   init : function() {
     this.setColour('#49A6D4');
     this.setOutput(true, ['Number', 'String', 'Key']);
     var checkTypeList = ['Array'];
     var checkTypeText = ['String'];
-    this.interpolateMsg("join items using separator %1 list %2",
+    this.interpolateMsg(Blockly.Msg.LANG_LISTS_JOIN_WITH_SEPARATOR_INPUT,
             ['SEPARATOR', checkTypeText, Blockly.ALIGN_RIGHT],
             ['LIST', checkTypeList, Blockly.ALIGN_RIGHT],
             Blockly.ALIGN_RIGHT);
-    this.setTooltip("Returns text with list elements joined with separator");
+    this.setTooltip(Blockly.Msg.LANG_LISTS_JOIN_WITH_SEPARATOR_TOOLTIP);
     this.setInputsInline(false);
   },
-  typeblock: [{ translatedName: "join with separator" }]
+  typeblock: [{ translatedName: Blockly.Msg.LANG_LISTS_JOIN_WITH_SEPARATOR_TITLE }]
 };
 
